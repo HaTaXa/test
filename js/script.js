@@ -66,16 +66,23 @@ let DepositSumYear = 0;
 
 let DepositAmount = +prompt("Введите годовую сумму депозита:");
 if(isNaN(DepositAmount) || DepositAmount == "" || DepositAmount == null) {
-	alert("Отсутствует сумма депозита.\n" +
+	alert("Неправильно заполнено поле «Сумма».\n" +
 			"(i) Поле не может быть пустым\n" +
 			"и не должно содержать текст.");
 }
-else {
+else if (DepositAmount <= 0) {
+	alert("Неправильно заполнено поле «Сумма».\n" +
+			"(i) Сумма не может быть отрицательным числом или равной 0.");
+} else {
 	let DepositPercent = Number(prompt("Введите годовой % от вклада:"));
 	if(isNaN(DepositPercent) || DepositPercent == "" || DepositPercent == null) {
-		alert("Отсутствует процент от вклада.\n" +
+		alert("Неправильно заполнено поле «Процент».\n" +
 				"(i) Поле не может быть пустым\n" +
 				"и не должно содержать текст.");
+	}
+	else if (DepositPercent <= 0) {
+		alert("Неправильно заполнено поле «Процент».\n" +
+				"(i) Процентное число не может быть отрицательным или равным 0.");
 	}
 	else {
 		// процент от суммы
