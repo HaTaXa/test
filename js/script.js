@@ -64,6 +64,8 @@ else {
 let PercentYear = 0;
 let DepositSumYear = 0;
 
+// a !== 10 || a === 0 || a > 10 || a < 0 || a == null || a == "" || isNaN(a)
+
 let DepositAmount = +prompt("Введите годовую сумму депозита:");
 if(isNaN(DepositAmount) || DepositAmount == "" || DepositAmount == null) {
 	alert("Неправильно заполнено поле «Сумма».\n" +
@@ -109,16 +111,17 @@ else if (DepositAmount <= 0) {
 }
 ***/
 
-/******/
+/***
 // 4. Запросить у пользователя ввод числа и сохранить это число в переменную a.
 // Если переменная a равна 10, то выведите 'Верно', иначе выведите 'Неверно'.
 
 let a = +prompt("Введите число от 1 до 10:");
-if(a !== 10 || a === 0 || a > 10 || a < 0 || a == null || a == "" || isNaN(a)) {
+if(a !== 10) {
 	alert(`a = ${a} - 'Неверно'`);
 } else {
 	alert(`a = ${a} - 'Верно'`);
 }
+***/
 
 /***
 // 6. Даны переменные:
@@ -171,4 +174,123 @@ for(let i = 1; i <= 50; i++) {
     }
 }
 alert(result);
+***/
+
+/***
+// 7. С помощью цикла for сформируйте строку '123456789' и запишите ее в переменную str.
+
+const MAXLENSTR = 50; // константа. Обычно регистр букв делается большими
+let str = "";
+// let myVal;
+let symbol = "*";
+let flag = true;
+
+let lenStr = Number(prompt("Длинна строки:"));
+
+if(lenStr.toString() != "NaN") {
+	if(lenStr > 0 && lenStr <= MAXLENSTR) {
+		let userAnswer = confirm(`Заполняется цифрами?`);
+		switch(userAnswer) {
+			case true: for(let i = 1; i <= lenStr; i++ ) {
+							str += i;
+						}
+						break; // оператор прерывания
+			case false: while(flag) {
+							symbol = prompt(`Укажите символ для заполнения строки:`);
+							if(symbol != null) {
+								if(symbol.length ==1) {
+									for(let i = 1; i <= lenStr; i++) {
+										str += symbol;
+									}
+									break; // оператор прерывания
+								}
+							}
+							else {
+								alert(`Ошибка!!!\n` +
+										`Введите 1 символ`);
+								flag = false;
+							}
+						}
+						break; // оператор прерывания
+		}
+		flag ? alert(`Результат:\n${str}`) : alert(`Вы отменили!`);
+	}
+	else if(lenStr == "") {
+		alert(`Ошибка!!!\n` +
+				`Длина строки не должна быть пустой`);
+	}
+	else {
+		alert(`Ошибка!!!\n` +
+				`Длина строки должна быть «> 0» и «<= ${MAXLENSTR}»`);
+	}
+}
+else {
+	alert(`Ошибка!!!\n` +
+			`Длина строки должна быть числом!`);
+}
+***/
+
+/***
+let str = "Привет друзья!";
+let resultStr = "";
+
+for(let i = 0; i <= str.length; i++) {
+	if(i == str.length - 1) {
+		resultStr += str[i];
+	}
+	else {
+		resultStr += str[i] + "\n";
+	}	
+}
+alert(resultStr);
+
+/***
+// 9. Дан массив с элементами 'Привет, ', 'мир' и '!'. Необходимо вывести на экран фразу 'Привет, мир!'
+
+// let mas = [100, "Привет!", true, -20]; // разноплановые массывы
+// alert(typeof mas);
+// let mas = ["Привет, ", "мир", "!"];
+// // alert(mas[0] + mas[2] + mas[mas.length - 1]);
+// let str = "";
+// let lenMas = 0;
+
+// --------------------------
+
+
+// for(let i = 0; i < mas.length; i++) {
+// 	str += mas[i];
+// }
+
+// mas[0] = "Добрый день, "; // переписать элемент массива
+// mas[mas.length - 1] = "!!!"; // добавить в массив
+// mas[7] = true;
+// mas[10] = 1000;
+
+// for(let index in mas) {
+// 	str += mas[index];
+// 	lenMas++; // то же самое что: lenStr = lenStr + 1;
+// }
+// alert(str);
+// alert(str + `\nДлина массива неверная: ${lenMas}`);
+// alert(str + `\nДлина массива реальная: ${mas.length}`);
+
+
+// --------------------------
+
+let str = "";
+let mas = [];
+let countItems = prompt(`Введите кол-во элементов в массиве:`);
+
+if(countItems > 0 && countItems <= 20) {
+	for(let i = 0; i < countItems; i++) {
+		mas[i] = Math.ceil(Math.random() * 10); // заполняем массив
+	}
+	for(let index in mas) {
+		str += mas[index] + `\n`;
+	}
+	alert(str);
+}
+else {
+	alert(`Кол-во элементов в массиве должно быть «> 0», и не «> 20»!`);
+}
 ***/
