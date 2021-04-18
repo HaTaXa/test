@@ -12,3 +12,25 @@
 // 	case false:
 // 		break;
 // }
+
+// -------- без стандартных функций -------------
+
+// let arrayOne = ['a', 'b', 'c'];
+// let arrayTwo = [1, 2, 3, 4, 5];
+// let arrayMix = [];
+
+// let str = "";
+// let i = 0;
+
+// for(let index in arrayOne) {
+//     arrayMix[i] = arrayOne[index];
+//     i++;
+// }
+// for(let index in arrayTwo) {
+//     arrayMix[i] = arrayTwo[index];
+//     i++;
+// }
+// for(let index in arrayMix) {
+//     str += arrayMix[index] + '\n';
+// }
+// alert(str);
