@@ -27,7 +27,7 @@ function setParametrs () {
 	}
 
 	// Формула дискриминанта корней квадратного уравнения: D = b² − 4ac
-	D = (Math.pow (b, 2) - (4 * a * c)).toFixed (2);
+	D = (Math.pow (b, 2) - (4 * a * c)).toFixed ();
 	console.dir (`Формула дискриминанта: «D = b² − 4ac»,\n` +
 				`Решение: D = ${b}² - 4 * ${a} * ${c} = ${D}.\n` +
 				`Варианты определения корней квадратного уравнения:\n` +
@@ -42,10 +42,8 @@ function setParametrs () {
 	console.dir (`                                             -b + √D         -b - √D\n` +
 	             `Формулы корней квадратного уравнения: «x1 = ---------; x2 = ---------».\n` +
 	`                                                2a              2a`);
-	x1 = ((- b + Math.sqrt (D)) / (2 * a)).toFixed (2);
-	x2 = ((- b - Math.sqrt (D)) / (2 * a)).toFixed (2);
-	console.dir (`Решение: x1 = -${b} + √${D} / 2 * ${a} = ${x1};\n` +
-	`         x2 = -${b} - √${D} / 2 * ${a} = ${x2}.`);
+	x1 = ((- b + Math.sqrt (D)) / (2 * a)).toFixed ();
+	x2 = ((- b - Math.sqrt (D)) / (2 * a)).toFixed ();
 
 	if (D < 0) {
 		strDiscrim = "корней нет.";
@@ -63,6 +61,7 @@ function setParametrs () {
 					`    x1: -${b} + √${D} / 2 * ${a} = ${x1};\n` +
 					`    x2: -${b} - √${D} / 2 * ${a} = ${x2}.`;
 	}
+	console.dir (`Решение: ${strFRQE}`)
 
 	alert (`Формула дискриминанта корней квадратного уравнения:\n` +
 			`    «D = b² - 4ac».\n` +
@@ -128,7 +127,7 @@ function setParametrs () {
 }
 
 // Функция проверки и определения значения для переменных
-function checkParam(param) {
+function checkParam (param) {
 	console.dir("«param» = " + param);
 	if (isNaN(param)) {
 		console.dir(`Переменная «param» содержит значение «NaN»`);
