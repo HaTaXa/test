@@ -3,24 +3,24 @@
 // переменным a и b будет присваивать значения вдвое и втрое (соответственно) большие
 // значения переменной х. Вывести эти значения на экран.
 
-// switch (confirm(`Задача № 12.\n` +
-// 				`Переменная «x» = 7.5.\n` + `Присвоить переменным «a» и «b» ` +
-// 				`значения в 2-ое и в 3-ое больше значения переменной «x»?`)) {
-// 	case true:
-// 		let x = 7.5;
-// 		let a = Math.pow(x, 2);
-// 		let b = Math.pow(x, 3);
-// 		let flag = true;
-// 		while(flag == true) {
-// 			flag = confirm(`«a» = ${a};\n` + `«b» = ${b}.`);
-// 			if(flag == true) {
-// 				a += a;
-// 				b += b;
-// 			}
-// 			else {
-// 				break;
-// 			}
-// 		}
-// 	case false:
-// 		break;
-// }
+switch (confirm(`Задача № 12.\n` +
+				`Переменная «x» = 7.5.\n` + `Присвоить переменным «a» и «b» ` +
+				`значения в 2-ое и в 3-ое больше значения переменной «x»?`)) {
+	case true:
+		let x = 7.5;
+		let a = Math.pow(x, 2);
+		let b = Math.pow(x, 3);
+		let flag = true;
+		while(flag == true) {
+			flag = confirm(`«a» = ${a};\n` + `«b» = ${b}.`);
+			if(flag == true) {
+				a += a;
+				b += b;
+			}
+			else {
+				break;
+			}
+		}
+	case false:
+		break;
+}
