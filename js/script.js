@@ -1,5 +1,4 @@
 // Решение уравнения
-
 let inputs = document.querySelectorAll("input"); //коллекция полей (поля ввода и кнопки)
 
 let inputParamA = document.getElementById("param_a");
@@ -14,56 +13,65 @@ let rangeParamA = document.getElementById("range_a");
 let rangeParamB = document.getElementById("range_b");
 let rangeParamC = document.getElementById("range_c");
 
+let buttons = document.querySelectorAll(".btn");
 let btnCalc = document.getElementById("btn_calc"); //кнопка расчёта
 let btnReset = document.getElementById("btn_reset"); //кнопка очистки
+let btnPlay = document.getElementById("btn_play"); //кнопка музыки
+
+let player;
+let playerAttributes = {
+    "id": "player",
+    "src": "media/sample1.mp3",
+    "controls": "",
+    "autoplay": "",
+    "class": "player"
+};
+
 
 let result; //результат вычисления
 let solution; //объект для вывода результата
 let removed; //удалённый объект, содержащий строку результата
+let removedPlayer; //удалённый плеер
 
 // обработчик события "input" при вводе в поле коэф. a 
 inputParamA.addEventListener("input", () => {
-    inputParamB.removeAttribute("disabled");
-    
-    btnCalc.removeAttribute("disabled");
-    btnReset.removeAttribute("disabled");
-
-    paramA = +inputParamA.value;
+    paramA = updateParam(inputParamA, rangeParamA);
+    unBlocked(inputParamB, rangeParamB, buttons);
 })
 
 // обработчик события "input" при вводе в поле коэф. b
 inputParamB.addEventListener("input", () => {
-    inputParamC.removeAttribute("disabled");
-    paramB = +inputParamB.value;
+    paramB = updateParam(inputParamB, rangeParamB);
+    unBlocked(inputParamC, rangeParamC);
 })
 
 // обработчик события "input" при вводе в поле коэф. c
 inputParamC.addEventListener("input", () => {
-    paramC = +inputParamC.value;
+    paramC = updateParam(inputParamC, rangeParamC);
 })
 
 // обработчик события "change" при изменении ползунка коэф. a 
 rangeParamA.addEventListener("change", () => {
-    inputParamA.value = rangeParamA.value;
-
-    inputParamB.removeAttribute("disabled");
-    rangeParamB.removeAttribute("disabled");
-
-    btnCalc.removeAttribute("disabled");
-    btnReset.removeAttribute("disabled");
+    paramA = updateParam(rangeParamA, inputParamA);
+    unBlocked(inputParamB, rangeParamB, buttons);
 })
 
 // обработчик события "change" при изменении ползунка коэф. b 
 rangeParamB.addEventListener("change", () => {
-    inputParamB.value = rangeParamB.value;
-
-    inputParamC.removeAttribute("disabled");
-    rangeParamC.removeAttribute("disabled");
+    paramB = updateParam(rangeParamB, inputParamB);
+    unBlocked(inputParamC, rangeParamC);
 })
 
-// обработчик события "change" при изменении ползунка коэф. b 
+// обработчик события "change" при изменении ползунка коэф. c 
 rangeParamC.addEventListener("change", () => {
-    inputParamC.value = rangeParamC.value;
+    paramC = updateParam(rangeParamC, inputParamC);
+})
+
+// обработчик события "click" при клике по кнопке "Произвести расчёт"
+btnCalc.addEventListener("click", () => {
+    console.log(paramA + ' ' + paramB + ' ' + paramC);
+    result = calcSolution(paramA, paramB, paramC);
+    printSolution();
 })
 
 // обработчик события "click" при клике по кнопке "Очистить"
@@ -82,11 +90,51 @@ btnReset.addEventListener("click", () => {
     removed = document.body.removeChild(solution);
 })
 
-// обработчик события "click" при клике по кнопке "Произвести расчёт"
-btnCalc.addEventListener("click", () => {
-    result = calcSolution(paramA, paramB, paramC);
-    printSolution();
+// обработчик события "click" при клике по кнопке "Показать/удалить плеер"
+btnPlay.addEventListener("click", () => {
+    if(document.getElementById("player")) {
+        document.body.removeChild(player);
+        btnPlay.setAttribute("value", "Показать плеер");
+    }
+    else {
+        player = createPlayer("audio", playerAttributes);
+
+        document.body.append(player);
+        btnPlay.setAttribute("value", "Удалить плеер");
+    }
 })
+
+// функция создания аудио-плеера
+function createPlayer(tag, attr) {
+    let player = document.createElement(tag);
+
+    for(let key in attr) {
+        player.setAttribute(key, attr[key]);
+    }
+    player.classList.add("player-show");
+
+    return player;
+}
+
+// функция разблокировки полей и кнопок
+function unBlocked(input, range, buttons) {
+    input.removeAttribute("disabled");
+    range.removeAttribute("disabled");
+
+    if(buttons) {
+        for (let btn of buttons) {
+            btn.removeAttribute("disabled");
+        }
+    }
+}
+
+// функция установки/обновления коэфициента в поле/ползунке
+function updateParam(input1, input2) {
+    let param = +input1.value; //значение коэф.
+    input2.value = param; //значение поля/ползунка с коэф.
+    
+    return param;
+}
 
 // главная функция расчёта корней (вычисление)
 function calcSolution(a, b, c) {

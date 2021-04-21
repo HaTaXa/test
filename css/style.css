@@ -93,7 +93,12 @@ body {
 }
 
 .form-equation .btn-reset {
+    margin-right: 20px;
     background-image: linear-gradient(135deg, #944f43 0%,#c23e27 50%, #944f43 100%);
+}
+
+.form-equation .btn-play {
+    background-color: rgb(77, 76, 76);
 }
 
 .solution {
@@ -110,4 +115,14 @@ body {
 .solution strong {
     font-weight: bold;
     color: rgb(200, 75, 3);
+}
+
+.player {
+    display: none;
+    margin: 25px auto;
+    width: 50%;
+}
+
+.player-show {
+    display: block;
 }

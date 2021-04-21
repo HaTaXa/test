@@ -1,0 +1,53 @@
+body {
+	font-family: 'Times New Roman', Times, serif;
+}
+
+/* Заголовок */
+.title {
+	width: 800px;
+	height: 100%;
+
+	position: relative;
+	margin: auto;
+	padding: 10px;
+	
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.container {
+	width: 800px;
+	height: 100%;
+
+	position: relative;
+	display: block;
+	
+	margin: auto;
+	padding: 10px;
+
+	border: none;
+}
+/* Подзаголовок */
+.container .heading {
+	margin: 0%;
+	text-align: center;
+}
+
+.container .img-list {
+	position: relative;
+	flex-direction: row;
+	list-style-type: none;
+}
+
+.img-list li {
+	width: 350px;
+	height: 300px;
+	
+	position: relative;
+	flex-direction: column;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+}
