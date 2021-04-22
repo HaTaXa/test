@@ -1,60 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>JavaScript</title>
-	
-	<link rel="stylesheet" href="css/style.css">
+    <title>JavaScript</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-	<h1 class="title">Решение уравнения</h1>
-	
-	<form class="form-equation">
-		<fieldset>
-			<legend>Коэффициенты</legend>
-	
-			<input class="params" id="param_a" type="number" placeholder="Коэф. a">
-			<input class="params" id="param_b" type="number" placeholder="Коэф. b" disabled>
-			<input class="params" id="param_c" type="number" placeholder="Коэф. c" disabled>
-	
-			<input class="range" type="range" id="range_a" min="-100" value="0" max="100">
-			<input class="range" type="range" id="range_b" min="-100" value="0" max="100" disabled>
-			<input class="range" type="range" id="range_c" min="-100" value="0" max="100" disabled>
-	
-			<div class="buttons">
-				<input class="btn btn-calc" id="btn_calc" type="button" value="Произвести расчёт" disabled>
-				<input class="btn btn-reset" id="btn_reset" type="reset" value="Очистить" disabled>
-				<input class="btn btn-play" id="btn_play" type="button" value="Показать плеер" disabled>
-			</div>
-		</fieldset>
-	</form>
+    <h1 class="title">Тестовые задания и примеры</h1>
+    <h2 class="title">Другие примеры</h2>
 
-	<!-- <audio id="player" class="player" src="media/sample1.mp3"></audio> -->
+    <section class="container">
+        <ul class="list">
+            <li>
+                <p class="text">
+                    <a href="workingwithevents.html" target="_blank">
+                        Работа с событиями (JS).
+                    </a>
+                </p>
+            </li>
+            <hr> <!-- горизонтальная линия -->
+            <li>
+                <p class="text">
+                    <a href="discrim.html" target="_blank">Дискриминант.</a><br>
+                    Вычисление дискриминанта корней квадратного уравнения.<br>
+                    Мой вариант решения корней квадратного уравнения.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a href="discriminant.html" target="_blank">Дискриминант.</a><br>
+                    Вычисление дискриминанта корней квадратного уравнения.<br>
+                    Пример от преподавателя Рубанова Александра Викторовича.
+                </p>
+            </li>
+        </ul>
+    </section>
+    <hr> <!-- горизонтальная линия -->
+    <h1 class="title">КОНТРОЛЬНЫЕ ВОПРОСЫ</h1>
+    <h2 class="title">
+        Для подготовки к итоговой аттестации<br>
+        «Frontend разработка»
+    </h2>
+    <section class="container">
+        <ul class="list">
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task1.html">Задача № 1.</a><br>
+                    Программа хранит в двух переменных курс доллара и евро. В первой переменной у вас хранится стоимость одного евро в рублях, во второй - стоимость одного доллара в рублях.<br>
+                    Вы спрашиваете у пользователя, сколько рублей он хочет сконвертировать, получаете это число и считаете. Результат надо вывести на страницу с помощью alert.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task2.html">Задача № 2.</a><br>
+                    Пользователь вводит длину оснований трапеции (a и b), а также высоту трапеции h.<br>
+                    Программа выводит сообщение: «Площадь трапеции будет равна 'значение'».<br>
+                    Площадь вычисляется по формуле ((a + b) / 2) * h, где a, b - основания, h - высота.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task3.html">Задача № 3.</a><br>
+                    Пользователь вводит сумму вклада и процент, который будет начисляться ежегодно.<br>
+                    Отобразить размер вклада поочередно на ближайшие 5 лет.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task4.html">Задача № 4.</a><br>
+                    Запросить у пользователя ввод числа и сохранить это число в переменную a.<br>
+                    Если переменная a равна 10, то выведите 'Верно', иначе выведите 'Неверно'.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task5.html">Задача № 5.</a><br>
+                    Выведите столбец чисел от 1 до 50.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task6.html">Задача № 6.</a><br>
+                    Задача № 6. Даны переменные:<br>
+                    a = 10;<br>
+                    b = 3;<br>
+                    a = 14;<br>
+                    b = 3;<br>
+                    Найдите остаток от деления a на b.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task7.html">Задача № 7.</a><br>
+                    С помощью цикла for сформируйте строку '123456789' и запишите ее в переменную str.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task8.html">Задача № 8.</a><br>
+                    Создайте переменную str и присвойте ей значение 'abcde'. Обращаясь к отдельным символам этой строки выведите на экран символ 'a', символ 'b', символ 'e'.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task9.html">Задача № 9.</a><br>
+                    Дан массив с элементами 'Привет, ', 'мир' и '!'. Необходимо вывести на экран фразу 'Привет, мир!'
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task10.html">Задача № 10.</a><br>
+                    Даны два массива: ['a', 'b', 'c'] и [1, 2, 3]. Объедините их вместе.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task12.html">Задача № 12.</a><br>
+                    Напишите фрагмет кода который будет присваивать значение 7.5 переменной х, а затем переменным a и b будет присваивать значения вдвое и втрое (соответственно) большие значения переменной х. Вывести эти значения на экран.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task34.html">Задача № 34.</a><br>
+                    Дан массив с числами. Проверьте, что в этом массиве есть число 5. Если есть - выведите 'да', а если нет - выведите 'нет'.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task40.html">Задача № 40.</a><br>
+                    Даны картинки. Привяжите к каждой картинке событие, чтобы по клику на картинку алертом выводился ее src.
+                </p>
+            </li>
+            <li>
+                <p class="text">
+                    <a target="_blank" title="Открыть ссылку в новой вкладке" href="task45.html">Задача № 45.</a><br>
+                    Дана строка 'aaa bbb ccc'. Вырежите из нее слово 'bbb' тремя разными способами (через substr, substring, slice).
+                </p>
+            </li>
+        </ul>
+    </section>
 
-
-
-	<!-- синхронное подключение JS -->
-	<script src="js/script.js" async></script>
-	<!-- <script src="js/examples.js" async></script> -->
-	<!-- <script src="js/script1.js" async></script> -->
-	<!-- <script src="js/task1.js" async></script> -->
-	<!-- <script src="js/task2.js" async></script> -->
-	<!-- <script src="js/task3.js" async></script> -->
-	<!-- <script src="js/task4.js" async></script> -->
-	<!-- <script src="js/task5.js" async></script> -->
-	<!-- <script src="js/task6.js" async></script> -->
-	<!-- <script src="js/task7.js" async></script> -->
-	<!-- <script src="js/task8.js" async></script> -->
-	<!-- <script src="js/task9.js" async></script> -->
-	<!-- <script src="js/task10.js" async></script> -->
-	<!-- <script src="js/task12.js" async></script> -->
-	<!-- <script src="js/task34.js" async></script> -->
-	<script src="js/task45.js" async></script>
-	<!-- <script src="js/discriminant.js" async></script> -->
-	<!-- <script src="js/functions.js" async></script> -->
+    <!-- синхронное подключение JS -->
+    <script src="js/script.js" async></script>
 </body>
 </html>

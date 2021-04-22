@@ -1,209 +1,122 @@
-// Вычисление дискриминанта корней квадратного уравнения.
+// ---------- функции ------------
 
-let strDiscrim = "", strFRQE = "";
-let paramDRQE = setParametrs();
-// let flag = true;
+// Мой пример задачи вычисление дискриминанта корней кв.ур.см.в js/discrim.js
 
-// декларация - объявляем функцию
-function setParametrs () {
-	let a, b, c; // коэф.кв.ур.
-	// let strResult; // строка итоговых значений
-	// let solutionResult; // вывод решения
+// --------------------------------
 
-// alert(`«a» = ` + a + ` - ` + checkParam(a)); // тест-проверка
-// a = a.trim(); // ??? при использовании функции «trim()» в окне prompt независимо от выбора действий юзера «ок/отмена» возникает ошибка: «Не удается прочитать свойство 'trim' null»
+// Решение уравнения
 
-// --- вариант 1 --- окно prompt будет выдаваться до тех пор, пока не будет введено числовое значение для каждой переменной, см.консоль, (!!!) но это не правильно - у юзера всегда должна быть возможность отмены/прерывание действий.
-// ??? почему в if не работают операторы «"break"» и «"continue"».
-// ??? есть ли тогда альтернатива оператору GoTo.
+let params = setParametrs();
+let solution;
 
-	while (checkParam(a = prompt(`Задачка. Вычисляем дискриминант корней квадратного уравнения.\n` + `1. Введите коэф. «a»:`)) == false) {
-		alert ("Неправильный ввод данных!!!\n" +
-				"Введите число и повторите попытку.");
-	}
-	if (a !== null) {
-		while (checkParam(b = prompt(`Задачка. Вычисляем дискриминант корней квадратного уравнения.\n` + `2. Введите коэф. «b»:`)) == false) {
-			alert ("Неправильный ввод данных!!!\n" +
-					"Введите число и повторите попытку.");
-		}
-		if (b !== null) {
-			while (checkParam(c = prompt(`Задачка. Вычисляем дискриминант корней квадратного уравнения.\n` + `3. Введите коэф. «c»:`)) == false) {
-				alert ("Неправильный ввод данных!!!\n" +
-						"Введите число и повторите попытку.");
-			}
-			if (c !== null) {
-				solutionDiscrim (a, b, c); // вычисляем дискриминант
-				// strResult = solutionsRoots (paramA, paramB, paramC, D); // вычисляем корни квадратного уравнения
-				// getSolution (a, b, c, D);
-			}
-		}
-	}
-
-// --- вариант 2 --- не работает из-за «break» и «continue»
-// ??? почему в if не работают операторы break и continue, см.консоль.
-// ??? есть ли альтернатива оператору GoTo.
-	// tryAgain1:
-	// a = prompt(`Задачка. Вычисляем дискриминант.\n` + `1. Введите коэф. «a»:`);
-	// // проверка 1-го значения
-	// if (checkParam(a) == true) {
-	// 	tryAgain2:
-	// 	b = prompt(`Задачка. Вычисляем дискриминант.\n` + `2. Введите коэф. «b»:`);
-	// 	// проверка 2-го значения
-	// 	if (checkParam(b) == true) {
-	// 		tryAgain3:
-	// 		c = prompt(`Задачка. Вычисляем дискриминант.\n` + `3. Введите коэф. «c»:`);
-	// 		// проверка 3-го значения
-	// 		if (checkParam(b) == true) {
-	// 			alert (`Дальше ищем инфу как вычислить дискриминант`);
-	// 		}
-	// 		else {
-	// 			if (a == null) {
-	// 				break;
-	// 			}
-	// 			else {
-	// 				continue tryAgain3;
-	// 			}
-	// 		}
-	// 	}
-	// 	else {
-	// 		if (a == null) {
-	// 			break;
-	// 		}
-	// 		else {
-	// 			continue tryAgain2;
-	// 		}
-	// 	}
-	// }
-	// else {
-	// 	if (a == null) {
-	// 		break;
-	// 	}
-	// 	else {
-	// 		continue tryAgain1;
-	// 	}
-	// }
+if (typeof params != "string") {
+    solution = calcSolution(params[0], params[1], params[2]);
+    getSolution(solution);
+}
+else {
+    alert(params);
 }
 
-// Функция проверки и определения значения для переменных
-function checkParam (param) {
-	console.dir("«param» = " + param);
-	if (isNaN(param)) {
-		console.dir(`Переменная «param» содержит значение «NaN»`);
-		return false;
-	}
-	else if (param == null) {
-		console.dir(`Переменная «param» содержит значение «null»`);
-		return true;
-	}
-	else if (param == undefined) {
-		console.dir(`Переменная «param» содержит значение «Undefined»`);
-		return false;
-	}
-	else if (param == "") {
-		console.dir(`Переменная «param» содержит пустую строку`);
-		return false;
-	}
-	// ??? проверка не срабатывает
-	else if (Number.isInteger(param)) {
-		console.dir(`Переменная «param» является числовым типом данных`);
-		return false;
-	}
-	else if (param == 0) {
-		console.dir(`Переменная «param» содержит значение «0»`);
-		return true;
-	}
-	else if (param <= 0) {
-		console.dir(`Переменная «param» содержит значение <= 0`);
-		return true;
-	}
-	else if (param > 0) {
-		console.dir(`Переменная «param» содержит значение > 0`);
-		return true;
-	}
-	else {
-		// Something else other...
-		console.dir(`Переменная «param» содержит Something else other...`);
-		return false;
-	}
+function setParametrs() {
+    let a, b, c; //коэф. кв. уравнения
+
+    if(a = setParam("a")) {
+        if(b = setParam("b")) {
+            if(c = setParam("c"))
+            {
+                return [a, b, c];
+            }
+        }
+    }
+	return "Вы отменили ввод!";
 }
 
-// Функция решения дискриминанта:
-// Формула дискриминанта корней квадратного уравнения: D = b² − 4ac
-function solutionDiscrim(paramA, paramB, paramC) {
-	let D; // дискриминант
-	let strRoots;
+function setParam(nameParam) {
+    let param; //коэффициент уравнения
+    let cancel; //флаг для проверки ввода параметра
 
-	D = (Math.pow (paramB, 2) - (4 * paramA * paramC)).toFixed(2);
-	// D = (paramB ** - 4 * paramA * paramC).toFixed(2); // неправильный подсчет
+    do {
+        param = prompt(`Коэф. ${nameParam}:`);
+        cancel = checkParametr(param);
+    } while (cancel);
 
-	console.dir (`Формула дискриминанта: «D = b² − 4ac»,\n` +
-				`Решение: D = ${paramB}² - 4 * ${paramA} * ${paramC} = ${D}.\n` +
-				`Варианты определения корней квадратного уравнения:\n` +
-				`    1. Если D < 0, корней нет;\n` +
-				`    2. Если D = 0, есть 1 корень;\n` +
-				`    3. Если D > 0, корней будет 2.\n`);
-
-	strRoots = solutionsRoots (paramA, paramB, paramC, D); // вычисляем корни квадратного уравнения
-	// return strRoots;
+    return param;
 }
 
-// Функция решения корней квадратного уравнения:
-//                                                     -b + √D         -b - √D
-// Формулы решения корней квадратного уравнения: x1 = ---------; x2 = ---------.
-//                                                        2a              2a
-function solutionsRoots(a, b, c, D) {
-	let x1, x2; // корни кв.ур.
-	
-	// x1 = ((- b + Math.sqrt (D)) / (2 * a));
-	// x2 = ((- b - Math.sqrt (D)) / (2 * a));
-	x1 = ((- b + Math.sqrt (D)) / (2 * a)).toFixed(2);
-	x2 = ((- b - Math.sqrt (D)) / (2 * a)).toFixed(2);
-
-
-	if (D < 0) {
-		strDiscrim = "корней нет.";
-		strFRQE = "корней нет - нечего считать.";
-	}
-	else if (D == 0) {
-		strDiscrim = "уравнение имеет 1 корень.";
-		strFRQE = `корни квадратного уравнения:\n` +
-					`    x1 = -${b} + √${D} / 2 * ${a} = ${x1};\n` +
-					`или\n` +
-					`    x2 = -${b} - √${D} / 2 * ${a} = ${x2}.`;
-	}
-	else if (D > 0) {
-		strDiscrim = "уравнение имеет 2 различных корня.";
-		strFRQE = `корни квадратного уравнения:\n` +
-					`    x1: -${b} + √${D} / 2 * ${a} = ${x1};\n` +
-					`    x2: -${b} - √${D} / 2 * ${a} = ${x2}.`;
-	}
-
-	console.dir (`                                             -b + √D         -b - √D\n` +
-				`Формулы корней квадратного уравнения: «x1 = ---------; x2 = ---------».\n` +
-				`                                                2a              2a`);
-	console.dir (`Решение: ${strFRQE}`);
-
-	getSolution (a, b, c, D);
-	return [strDiscrim, strFRQE];
+function checkParametr(param) {
+    if (typeof param == "object") {
+        return false;
+    }
+    else if (isNaN(param) || param == "") {
+        alert("Ошибка! Введена пустая строка или не число!");
+        return true;
+    }
 }
 
-function getSolution (paramA, paramB, paramC, paramD) {
+function calcSolution(a, b, c) {
+    let D; //дискриминант
+    let result; //строка с итогом
 
-	alert (`Формула дискриминанта корней квадратного уравнения:\n` +
-			`    «D = b² - 4ac».\n` +
-			`Варианты определения корней квадратного уравнения:\n` +
-			`    1. Если D < 0, корней нет;\n` +
-			`    2. Если D = 0, есть 1 корень;\n` +
-			`    3. Если D > 0, корней будет 2.\n` +
-			`-------------------------------------\n` +
-			`В итоге дискриминант: ${paramB}² - 4 * ${paramA} * ${paramC} = ${paramD}.\n` +
-			`Следовательно: ${strDiscrim}\n` +
-			`-------------------------------------\n` +
-			`Формулы корней квадратного уравнения:\n` +
-			`    «x1 = -b + √D / 2a»;\n` +
-			`    «x2 = -b - √D / 2a».\n` +
-			`-------------------------------------\n` +
-			`В итоге ${strFRQE}\n` +
-			`____________________________________\n` +
-			`Спасибо за внимание! ^_^`);
+    if(a == 0) {
+        if(b == 0) {
+            result = "Корней нет!";
+        }
+        else {
+            if(c != 0) {
+                result = -c / b;
+            }
+            else {
+                result = 0;
+            }
+        }
+    }
+    else if(b == 0) {
+        if(c != 0) {
+            (-c / a >= 0) ? result = Math.sqrt(-c / a) : result = "Корней нет!";
+        }
+        else {
+            result = 0;
+        }
+    }
+    else if(c == 0) {
+        result = [0, -b / a];
+    }
+    else {
+        D = calcD(a, b, c);
+        result = calcRoots(D, a, b, c);
+    }
+    return result;
+}
+
+function calcD(a, b, c) {
+    return b ** 2 - 4 * a * c;
+}
+
+function calcRoots(D, a, b, c) {
+    let x1, x2; //корни квадратного уравнения
+
+    if(D > 0) {
+        x1 = (-b + Math.sqrt(D)) / (2 * a);
+        x2 = (-b - Math.sqrt(D)) / (2 * a);
+
+        return [x1, x2];
+    }
+    else if (D == 0) {
+        return -b / (2 * a);
+    }
+    else {
+        return "Корней нет!";
+    }
+}
+
+function getSolution(solution) {
+    if(typeof solution == "string") {
+        alert(solution);
+    }
+    else if(typeof solution == "number") {
+        alert(`Уравнение имеет один корень: x = ${solution.toFixed(2)}`);
+    }
+    else {
+        alert("Уравнение квадратное. Имеет два корня:\n" + "x1 = " + solution[0].toFixed(2) + "\nx2 = " + solution[1].toFixed(2));
+    }
 }

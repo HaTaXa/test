@@ -9,10 +9,16 @@ body {
 
 	position: relative;
 	margin: auto;
-	padding: 10px;
+	padding: 5px;
 	
 	text-align: center;
 	text-transform: uppercase;
+}
+
+.img-list {
+	align-items: center;
+	border-radius: 10px;
+	margin: auto; /* выравнивает контейнер горизонтально по центру */
 }
 
 .container {
@@ -20,10 +26,9 @@ body {
 	height: 100%;
 
 	position: relative;
-	display: block;
 	
 	margin: auto;
-	padding: 10px;
+	padding: 5px;
 
 	border: none;
 }
@@ -33,21 +38,21 @@ body {
 	text-align: center;
 }
 
-.container .img-list {
-	position: relative;
-	flex-direction: row;
-	list-style-type: none;
-}
-
-.img-list li {
+.container li {
 	width: 350px;
 	height: 300px;
-	
+	/* position: relative; */
+	/* margin: 0; */
+	padding: 5px;
+}
+
+.container .img-list {
 	position: relative;
-	flex-direction: column;
-	flex-wrap: wrap;
-	box-sizing: border-box;
-	align-items: center;
+	display: flex;
+	flex-direction: row; /* картинки строкой, collumn переносит на следующую строку их «display: flex;» тоже нужен обязательно */
+	flex-wrap: wrap; /* перенос */
 	justify-content: space-between;
-	border-radius: 10px;
+	box-sizing: content-box;
+	align-items: center;
+	list-style-type: none;
 }
