@@ -1,0 +1,75 @@
+html {
+	font-family: 'Times New Roman', Times, serif;
+	/* line-height: 100%; */
+}
+
+.btn {
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+	/* font-size: 1em; */
+	font-weight: bold;
+	transition: all 0.5s;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn[disabled] {
+	cursor: auto;
+}
+
+.form-Search {
+	min-width: 500px;
+	max-width: max-content;
+	margin: auto;
+	padding: 1.5rem 1rem;
+	border-radius: 10px;
+	align-items: center;
+}
+
+/* .form-Search fieldset {
+	margin-bottom: 0.8rem;
+} */
+
+.form-group {
+	display: flex; /* перенос */
+	margin: auto;
+	padding: 2.5px;
+	align-items: center;
+}
+
+.form-group label {
+	margin-right: 2.5px;
+}
+
+/* .form-group input {
+	margin-left: 2.5px;
+	margin-right: 2.5px;
+} */
+
+.form-group button {
+	margin-left: 2.5px;
+
+}
+
+.group-1 input {
+	min-width: 630px;
+	max-width: max-content;
+	min-height: 120px;
+	max-height: max-content;
+	margin: auto;
+	word-break: break-all;
+	/* padding: 0 0 50px 0; */ /* не получается сделать в левом верхнем углу */
+}
+
+.group-2 .txt {
+	min-width: 518px;
+	margin-left: 2.5px;
+	margin-right: 2.5px;
+}
+
+.group-2 .btn {
+	margin-left: 2.5px;
+}

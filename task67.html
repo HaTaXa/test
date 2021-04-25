@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задача № 67</title>
+
+	<link rel="stylesheet" href="css/task67.css">
+</head>
+
+<body>
+Задача № 67. Сделайте функцию inArray, которая определяет, есть в массиве элемент с заданным текстом или нет. Функция первым параметром должна принимать текст элемента, а вторым - массив, в котором делается поиск. Функция должна возвращать true или false.
+<hr> <!-- линия -->
+<b>
+	(i) Задачу поняла так, как будто требуется сделать поисковую форму.<br>
+</b>
+!!! Не получилось добраться до сути сделать, чтобы выделялся текст в поле с текстом. Не успела, поэтому вывод значений пока что в окне "Alert".
+<hr> <!-- линия -->
+Вопросы:<br>
+1) как сделать ввод текста "по дефолту" - в левом верхнем углу? "padding: 0 0 0 0;" не работает.<br>
+2) как сделать перенос строк в самом поле input? Что то типа значения "Multiline".<br>
+3) не пойму как возвращать ASCII код символа? Т.е.например нужно проверить chr(символа): наподобие типа chr(32) (т.е.простой пробел) или chr(160) (неразрывный пробел) и так далее...<br>
+4) не получилось воспользоваться функцией «RegExp». Хотя она вряд ли здесь будет уместна.<br>
+5) какая все таки разница между циклами «For...in» и «For...of»?<br>
+Если сравнивать логику с VBA, то там отличие примерно такое:<br>
+а) когда нужно перебрать каждую единицу в каком-либо объекте, например:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For i = LBound(arr) To UBound(arr)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For j = LBound(arr, 2) To UBound(arr, 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Cells(j + 1, i + 1).Value = arr(i, j)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next j<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Next i<br>
+
+б) когда нужно для каждого объекта в объекте/коллекции... пройтись циклом, например:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For Each rng In obj.Range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReDim Preserve arr(0 To 1, 0 To j) 'расширяем размер массива с сохранением предыдущих значений<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr(0, j) = rng.Value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = j + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Next<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set rng = Nothing 'удалить объект из оп.памяти<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Erase arr 'очищаем сожержимое массива<br>
+<br>Как то вот так, вот.<br>
+<hr> <!-- линия -->
+Просьбы:<br>
+1) не могу никак разобраться как правильно прописывать длинну не всего массива, а только <u><b>одного</b> из значений</u> в массиве. Разъясните пожалуйста этот момент на любом каком-нибудь маленьком примерчике.<br>
+2) разъясните еще раз разницу между «() =&gt», «function()» и «function(event)»:<br>
+а) «.addEventListener('click', () =&gt {}»;<br>
+б) «.addEventListener('change', function() {}»;<br>
+в) «.addEventListener('keydown', function(event) {}»<br>
+<hr> <!-- линия -->
+
+	<form class="form-Search">
+		<fieldset>
+			<legend class="title">Задача № 67</legend>
+			<div class="form-group group-1">
+				<input type="text" name="textField" id="fieldText" placeholder="Введите любой текст, например: «Мама мыла раму.» или «А Роза упала на лапу Азора.»" autocomplete="off">
+			</div>
+			<div class="form-group group-2">
+				<label for="fieldSearch">Поиск</label>
+				<input class="txt" type="text" name="searchField" id="fieldSearch" placeholder="Введите текст для поиска" disabled>
+				<!-- <button class="btn" id="btn-search" disabled>Search</button> -->
+				<input class="btn" type="button" name="btnSearch" id="btn-search" value="Search" disabled>
+				<!-- <label for="#"></label> -->
+			</div>
+		</fieldset>
+	</form>
+
+	<!-- синхронное подключение JS -->
+	<script src="js/task67.js" async></script>
+</body>
+
+</html>

@@ -14,9 +14,9 @@ function getUserAction() {
 	do {
 		int = prompt(str);
 		if (int == null) {
-			blnUserAction = false; // юзер нажал «Отмену», прерываем цикл
+			blnUserAction = false;
 			console.log(`${blnUserAction}: int = «${int}»`);
-			break;
+			break; // юзер нажал «Отмену», прерываем цикл
 		}
 		else {
 			if (isNaN(int)) {
@@ -90,8 +90,8 @@ function getUserAction() {
 
 // 		switch (int) {
 // 			case null:
-// 				blnUserAction = false; // юзер нажал «Отмену», прерываем цикл
-// 				break;
+// 				blnUserAction = false;
+// 				break; // юзер нажал «Отмену», прерываем цикл
 // 			case NaN:
 // 				blnUserAction = false;
 // 				alert ("Неверный ввод!!!\n" + "Исправьте число и повторите попытку.");

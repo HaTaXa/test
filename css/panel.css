@@ -1,0 +1,77 @@
+/* Панель */
+
+.panel-open {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 15px 20px;
+	border: 5px outset red;
+	;
+	background-color: rgb(209, 34, 34);
+	background-image: url("../media/icon-panel.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	transition: all 0.25s;
+}
+
+.panel-open:hover {
+	cursor: pointer;
+	background-color: rgb(184, 123, 123);
+	transform: scale(1.1);
+}
+
+.panel-open:focus {
+	outline: 2px solid rgb(235, 46, 13);
+}
+
+.panel {
+	box-sizing: border-box;
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 15vw;
+	height: 100%;
+	background-color: rgb(131, 2, 2);
+	border-right: 10px solid rgb(204, 40, 40);
+}
+
+.panel__hidden {
+	display: none;
+}
+
+@keyframes panelMoveRight {
+	0% {
+		left: -15vw;
+	}
+	100% {
+		left: 0;
+	}
+}
+
+@keyframes panelMoveLeft {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: -15vw;
+	}
+}
+
+@keyframes btnMoveRight {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 15vw;
+	}
+}
+
+@keyframes btnMoveLeft {
+	0% {
+		left: 15vw;
+	}
+	100% {
+		left: 0;
+	}
+}
