@@ -8,7 +8,7 @@
 	border: 5px outset red;
 	;
 	background-color: rgb(209, 34, 34);
-	background-image: url("../media/icon-panel.svg");
+	background-image: url("/image/icon-panel.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
