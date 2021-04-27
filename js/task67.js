@@ -2,8 +2,8 @@
 
 // ИНИЦИАЛИЗАЦИЯ
 
-let inputFieldText = document.getElementById('fieldText');
-let inputFieldSearch = document.getElementById('fieldSearch');
+let inputFieldText = document.getElementById('field-text');
+let inputFieldSearch = document.getElementById('field-search');
 let btnSearch = document.getElementById('btn-search');
 
 // СОБЫТИЯ ЭЛЕМЕНТОВ
@@ -81,14 +81,14 @@ inputFieldSearch.addEventListener("change", () => {
 // обработчик события нажатие кнопки мыши
 btnSearch.addEventListener("click", function() {
 	setParametrs();
-	if (btnSearch.getAttribute("disabled") != "disabled") {
-		// вешаем гор.клав.на кнопку поиск
-		document.addEventListener("keydown", function(event) {
-			if (event.key == "Enter") {
-				setParametrs();
-			}
-		});
-	}
+	// if (btnSearch.getAttribute("disabled") != "disabled") {
+	// 	// вешаем гор.клав.на кнопку поиск
+	// 	document.addEventListener("keydown", function(event) {
+	// 		if (event.key == "Enter") {
+	// 			setParametrs();
+	// 		}
+	// 	});
+	// }
 });
 
 // --- ФУНКЦИИ
