@@ -11,9 +11,13 @@ let inputButtonGo = document.getElementById('btn-go');
 let inputButtonClear = document.getElementById('btn-clear');
 let inputLabelFieldText = document.getElementById('lbl-txtField');
 
+// !!! не срабатывает не понимаю как применять
+// document.addEventListener("focus", function(event) {
+// 	inputFieldText.select();
+// 	inputFieldText.focus();
+// });
 
-
-// обработчик события нажатие клавиши ввод на клавиатуре
+// нажатие клавиш на клавиатуре
 document.addEventListener("keydown", function(event) {
 	if (event.key == "Enter") {
 		if (inputFieldText.value != "") {
@@ -22,7 +26,7 @@ document.addEventListener("keydown", function(event) {
 		}
 	}
 });
-// --- кнопка GO
+// события кнопки GO
 inputButtonGo.onmouseover = function(event) {
 	inputButtonGo.style.cursor = 'pointer';
 }
@@ -37,7 +41,7 @@ inputButtonGo.addEventListener("click", () => {
 		setArrNumbers();
 	}
 });
-// --- кнопка Clear
+// --- события кнопки Clear
 inputButtonClear.onmouseover = function(event) {
 	inputButtonClear.style.cursor = 'pointer';
 }
@@ -51,8 +55,11 @@ inputButtonClear.addEventListener("click", () => {
 	inputLabelFieldText.value = "Введите 10 любых чисел, разделенных между собой пробелом";
 });
 
-
-
+// !!! не срабатывает не понимаю как применять
+// inputFieldText.addEventListener("focus", function(event) {
+// 	inputFieldText.select();
+// 	inputFieldText.focus();
+// });
 
 // 
 function setArrNumbers() {
@@ -60,8 +67,10 @@ function setArrNumbers() {
 		console.log(`1) Функция «setArrNumbers()»: arr[${arr}], arr.length = ${arr.length}`);
 		if (checkAddInputNumbers(inputFieldText.value)) {
 			console.log(`2) Функция «setArrNumbers()»: arr[${arr}], arr.length = ${arr.length}`);
-			inputLabelFieldText.value = arr
-			// inputLabelFieldText.value = getLongOrderNumbers();
+			let str = getLongOrderNumbers(arr);
+			// ??? результат не выводится
+			inputLabelFieldText.value = `Длина самой длинной последовательности повторяющихся чисел: ` + str;
+
 		}
 		else {
 			inputLabelFieldText.value = "!!! Не удалось добавить в массив значения из поля текст!";
@@ -70,26 +79,47 @@ function setArrNumbers() {
 	else {
 		inputLabelFieldText.value = "!!! Не удалось создать массив чисел!";
 	}
+	console.log(`3) Функция «setArrNumbers()»: ${inputLabelFieldText.value}\n` + `«The End»`);
+}
+
+function getLongOrderNumbers(strArr) {
+	console.log(`1) Функция «getLongOrderNumbers()»: arr[${strArr}], arr.length = ${strArr.length}`);
+	let max = 0;
+	let iCounter = 1;
+
+	for (let i = 1; i < arr.length; i++) {
+		if (arr[i] == arr[i - 1]) {
+			iCounter++;
+			if (iCounter > max) {
+				max = iCounter;
+			}
+		} else iCounter = 1;
+	}
+	console.log(`2) Функция «getLongOrderNumbers()»: длинна = ${max}`);
+	return max;
 }
 
 function checkAddInputNumbers(arrString) {
 	let newArr = [];
 	
 	console.log(`1) Функция «checkAddInputNumbers()»: arrString = ${arrString}, arrString.length = ${arrString.length}`);
-	for (let i = 0; i < arrString.length; i++) {
-		if (arrString[i] = " ") {
+	for (let i = 0, iCounter = 0; i < arrString.length; i++) {
+		if (arrString[i] == " ") {
+			iCounter++; // расширяем размер массива
 			continue;
 		}
 		else {
-			newArr[i] = arrString[i];
+			newArr[iCounter] = arrString[i];
 		}
 	}
 	console.log(`2) Функция «checkAddInputNumbers()»: newArr = ${newArr}, newArr.length = ${newArr.length}`);
-	if (newArr.length == 19) {
+	if (newArr.length == 10) {
 		arr.push(newArr);
+		console.log(`3) Функция «checkAddInputNumbers()»: arr = ${arr}, newArr.length = ${arr.length}`);
 		return true;
 	}
 	else {
+		console.log(`3) Функция «checkAddInputNumbers()»: arr = ${arr}, newArr.length = ${arr.length}`);
 		return false;
 	}
 }
