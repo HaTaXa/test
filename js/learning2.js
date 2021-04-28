@@ -58,16 +58,16 @@ inputAge.addEventListener("input", () => {
 			document.body.insertAdjacentElement("afterbegin", error);
 		}
 		else {
-		if(document.querySelector(".error")) {
-			setTimeout(() => {
-			error.classList.remove("animate__backInDown");
-			error.classList.add("animate__backOutUp");
-			}, 500);
-			setTimeout(() => {error.remove();}, 3000);
-		}
+			if(document.querySelector(".error")) {
+				setTimeout(() => {
+				error.classList.remove("animate__backInDown");
+				error.classList.add("animate__backOutUp");
+				}, 500);
+				setTimeout(() => {error.remove();}, 3000);
+			}
 		}
 	}
-})
+});
 
 function createElem(tagName) {
 	elem = document.createElement(tagName);

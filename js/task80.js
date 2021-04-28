@@ -11,12 +11,6 @@ let inputButtonGo = document.getElementById('btn-go');
 let inputButtonClear = document.getElementById('btn-clear');
 let inputLabelFieldText = document.getElementById('lbl-txtField');
 
-// !!! не срабатывает не понимаю как применять
-// document.addEventListener("focus", function(event) {
-// 	inputFieldText.select();
-// 	inputFieldText.focus();
-// });
-
 // нажатие клавиш на клавиатуре
 document.addEventListener("keydown", function(event) {
 	if (event.key == "Enter") {
@@ -55,11 +49,17 @@ inputButtonClear.addEventListener("click", () => {
 	inputLabelFieldText.value = "Введите 10 любых чисел, разделенных между собой пробелом";
 });
 
-// !!! не срабатывает не понимаю как применять
-// inputFieldText.addEventListener("focus", function(event) {
-// 	inputFieldText.select();
-// 	inputFieldText.focus();
-// });
+inputFieldText.value = "2 2 2 2 2 2 2 2 2 2";
+inputFieldText.focus(); // наконец то фокус заработал
+
+
+// событие лейбла
+inputLabelFieldText.onchange = function(event) {
+
+}
+
+
+
 
 // 
 function setArrNumbers() {
