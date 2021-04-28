@@ -16,14 +16,14 @@ else {
     }
     else {
       for(let i = 0; i < countUsers; i++) {
-        user = createUser();
+        user = User();
         users[i] = user;
       }
     }
   }
 }
 
-function createUser() {
+function User() {
   let user = {};
 
   user.name = prompt("Имя:");
