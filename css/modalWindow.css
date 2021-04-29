@@ -1,0 +1,52 @@
+/* ??? Не понимаю как правильно делать иерархию для классов? */
+p {
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+div {
+	width: 200px;
+	/* height: 100px; */
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+}
+
+.classDiv {
+	height: 100px;
+}
+
+.btn {
+	margin: auto;
+	padding: 5px;
+}
+
+.btn-input {
+	margin: auto;
+	margin-top: 36px;
+	padding: 5px;
+}
+
+.form {
+	width: 300px;
+	/* height: 150px; */
+	margin: auto;
+	padding: 10px;
+}
+.form-modal-hidden {
+	display: none;
+}
+
+/* .btn-group {
+	height: 150px;
+} */
+
+.btn-enter,
+.btn-cancel {
+	margin: auto;
+	margin-top: 50px;
+	padding: 5px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery</title>
+
+	<link rel="stylesheet" href="css/modalWindow.css">
+</head>
+<body>
+Практическое задание. jQuery<br>
+<b>Задание:</b> подключить локально библиотеку jQuery к собственной html-странице. Создать модальное окно на веб-странице с применением данной библиотеки.  jQuery должна обеспечивать плавное открытие/закрытие модального окна.<br><br>
+По результату выполнения задания должен быть создан корневой каталог, содержащий веб-страницу в расширении <b>.html</b>, а также файлы скрипта JavaScript и файлы библиотеки jQuery. Допускается наличие дополнительных файлов расширений: <b>.css, .jpg</b> и других.<br><br>
+<b><u>Выполнить не удалось</u></b>
+<hr> <!-- горизонтальная линия -->
+
+	<div class="classDiv">
+		<input class="btn btn-input" type="button" name="btnDemo" id="btn-demoButton" title="Демонстрация модального окна" value="Open Modal Window">
+	</div>
+
+	<form id="form-modalWindow" class="form form-modal-hidden">
+		<fieldset>
+			<legend>Окно приветствия</legend>
+			<p>
+				Hello Friend!!!<br><br>
+				(i) Чтобы закрыть окно, нажмите клавишу «Esc»
+			</p>
+			<div class="btn-group">
+				<!-- <button class="btn btn-enter" id="btn-ok">«Enter»</button> -->
+				<button class="btn btn-cancel" id="btn-cancel" title="Чтобы закрыть окно, нажмите клавишу «Esc»">«Esc»</button>
+			</div>
+		</fieldset>
+	</form>
+
+
+
+
+
+	<!-- синхронное подключение JS -->
+	<!-- локальное подключение библиотеки jquery -->
+	<script src="js/jquery-3.6.0.js" async></script>
+	<!-- ссылка на jquery cdn: -->
+	<!-- несжатый -->
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+	<!-- минимизированный -->
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+
+	<!-- другие js-скрипты -->
+	<script src="js/modalWindow.js" async></script>
+</body>
+</html>

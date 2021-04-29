@@ -4,8 +4,6 @@
 // 3. Вывести на экран длину самой длинной последовательности повторяющихся чисел в списке.
 // Пример для списка <i>2, 4, 4, 4, 8, 8, 4, 12, 12, 14</i>: 3.
 
-let arr = [];
-
 let inputFieldText = document.getElementById('txt-field');
 let inputButtonGo = document.getElementById('btn-go');
 let inputButtonClear = document.getElementById('btn-clear');
@@ -14,10 +12,15 @@ let inputLabelFieldText = document.getElementById('lbl-txtField');
 // нажатие клавиш на клавиатуре
 document.addEventListener("keydown", function(event) {
 	if (event.key == "Enter") {
-		if (inputFieldText.value != "") {
-			console.log(`Событие «keydown»`);
-			setArrNumbers();
+		console.log(`"document", событие "keydown": 1) Старт программы`);
+		if (checkFieldValue(inputFieldText.value)) {
+			setLenLongOrderRepeatNum(inputFieldText.value);
 		}
+		else {
+			console.log(`"document", событие "keydown": 1.1) Не заполнено поле текст`);
+			alert(`(i) Поле текст не заполнено!!!\n` + `Введите 10 любых чисел, разделенных между собой пробелом.`);
+		}
+		console.log(`"document", событие "keydown": 2) Финиш программы`);
 	}
 });
 // события кнопки GO
@@ -30,10 +33,15 @@ inputButtonGo.onmouseout = function(event) {
 }
 
 inputButtonGo.addEventListener("click", () => {
-	if (inputFieldText.value != "") {
-		console.log(`Событие «click»`);
-		setArrNumbers();
+	console.log(`"inputButtonGo", событие "click": 1) Старт программы`);
+	if (checkFieldValue(inputFieldText.value)) {
+		setLenLongOrderRepeatNum();
 	}
+	else {
+		console.log(`"document", событие "keydown": 1.1) Не заполнено поле текст`);
+		alert(`(i) Поле текст не заполнено!!!\n` + `Введите 10 любых чисел, разделенных между собой пробелом.`);
+	}
+	console.log(`"inputButtonGo", событие «click»: 2) Финиш программы`);
 });
 // --- события кнопки Clear
 inputButtonClear.onmouseover = function(event) {
@@ -49,8 +57,8 @@ inputButtonClear.addEventListener("click", () => {
 	inputLabelFieldText.value = "Введите 10 любых чисел, разделенных между собой пробелом";
 });
 
-inputFieldText.value = "2 2 2 2 2 2 2 2 2 2";
 inputFieldText.focus(); // наконец то фокус заработал
+inputFieldText.value = "6 10 5 23 23 14 6 6 1 2"; // временно, чтобы не вводить каждый раз при тесте
 
 
 // событие лейбла
@@ -61,16 +69,16 @@ inputLabelFieldText.onchange = function(event) {
 
 
 
-// 
-function setArrNumbers() {
-	if (createArrNumbers()) {
-		console.log(`1) Функция «setArrNumbers()»: arr[${arr}], arr.length = ${arr.length}`);
-		if (checkAddInputNumbers(inputFieldText.value)) {
-			console.log(`2) Функция «setArrNumbers()»: arr[${arr}], arr.length = ${arr.length}`);
-			let str = getLongOrderNumbers(arr);
-			// ??? результат не выводится
-			inputLabelFieldText.value = `Длина самой длинной последовательности повторяющихся чисел: ` + str;
+// головная программа
+function setLenLongOrderRepeatNum(valueNum) {
+	if (generateRandomAndPush()) {
+		console.log(`1) Функция "setLenLongOrderRepeatNum()": valueNum[${valueNum}], valueNum.length = ${valueNum.length}`);
 
+		let arr = checkAddArrayValues(inputFieldText.value);
+		console.log(`2) Функция "setLenLongOrderRepeatNum()": arr[${arr}], arr.length = ${arr.length}`);
+		if (arr.length == 20) {
+			// ??? результат не выводится, почему?
+			inputLabelFieldText.value = `Длина самой длинной последовательности повторяющихся чисел: ` + getLenLongOrderRepeatNum(arr);
 		}
 		else {
 			inputLabelFieldText.value = "!!! Не удалось добавить в массив значения из поля текст!";
@@ -79,11 +87,11 @@ function setArrNumbers() {
 	else {
 		inputLabelFieldText.value = "!!! Не удалось создать массив чисел!";
 	}
-	console.log(`3) Функция «setArrNumbers()»: ${inputLabelFieldText.value}\n` + `«The End»`);
+	console.log(`3) Функция "setLenLongOrderRepeatNum()": ${inputLabelFieldText.value}\n` + `«The End»`);
 }
 
-function getLongOrderNumbers(strArr) {
-	console.log(`1) Функция «getLongOrderNumbers()»: arr[${strArr}], arr.length = ${strArr.length}`);
+function getLenLongOrderRepeatNum(strArr) {
+	console.log(`1) Функция "getLenLongOrderRepeatNum()": arr[${strArr}], arr.length = ${strArr.length}`);
 	let max = 0;
 	let iCounter = 1;
 
@@ -95,45 +103,62 @@ function getLongOrderNumbers(strArr) {
 			}
 		} else iCounter = 1;
 	}
-	console.log(`2) Функция «getLongOrderNumbers()»: длинна = ${max}`);
+	console.log(`2) Функция "getLenLongOrderRepeatNum()": длинна = ${max}`);
 	return max;
 }
+// проверка и добавление в массив значений
+function checkAddArrayValues(strValue) {
+	let arr = [];
+	let arrNew = [];
 
-function checkAddInputNumbers(arrString) {
-	let newArr = [];
-	
-	console.log(`1) Функция «checkAddInputNumbers()»: arrString = ${arrString}, arrString.length = ${arrString.length}`);
-	for (let i = 0, iCounter = 0; i < arrString.length; i++) {
-		if (arrString[i] == " ") {
-			iCounter++; // расширяем размер массива
+	console.log(`1) Функция "checkAddArrayValues()": strValue = ${strValue}, strValue.length = ${strValue.length}`);
+
+	for (let i = 0, iCounter = 0; i < strValue.length; i++) {
+		if (strValue[i] == " " || strValue[i] == "," || strValue[i] == ";") {
 			continue;
 		}
 		else {
-			newArr[iCounter] = arrString[i];
+			arrNew[iCounter] = strValue[i];
+			iCounter++; // расширяем размер массива
 		}
 	}
-	console.log(`2) Функция «checkAddInputNumbers()»: newArr = ${newArr}, newArr.length = ${newArr.length}`);
-	if (newArr.length == 10) {
-		arr.push(newArr);
-		console.log(`3) Функция «checkAddInputNumbers()»: arr = ${arr}, newArr.length = ${arr.length}`);
-		return true;
+	console.log(`2) Функция "checkAddArrayValues()": arrNew = ${arrNew}, arrNew.length = ${arrNew.length}`);
+
+	if (arrNew.length == 10) {
+		// arrNew.push(arrNew); // ??? проверить, интересно что будет
+		arr.push(arrNew); // добавляем массив в массив
+		console.log(`3) Функция "checkAddArrayValues()": arr = ${arr}, arr.length = ${arr.length}`);
+		return arr;
 	}
 	else {
-		console.log(`3) Функция «checkAddInputNumbers()»: arr = ${arr}, newArr.length = ${arr.length}`);
-		return false;
+		console.log(`3) Функция "checkAddArrayValues()": arr = ${arr}, arr.length = ${arr.length}`);
+		return arr;
 	}
 }
-
-function createArrNumbers() {
+// генерирование порядка случайных чисел
+function generateRandomAndPush() {
+	let arr = [];
+	
 	for (let i = 0; i < 10; i++) {
 		// arr[i] = i;
-		arr.push( Math.round( Math.random() * 10 ));
+		arr[i] = (Math.random() * 100).toFixed();
 	}
-	console.log(`Функция «createArrNumbers()»: arr[${arr}], arr.length = ${arr.length}`);
+	console.log(`Функция "generateRandomAndPush()": Math.random() - arr[${arr}], arr.length = ${arr.length}`);
+
 	if (arr.length == 10) {
 		return true;
 	}
 	else {
+		return false;
+	}
+}
+// проверка поля текст на наличие значений
+function checkFieldValue(fieldValue) {
+	console.log(`Функция "checkFieldValue()": fieldValue = "${fieldValue}", fieldValue.length = ${fieldValue.length}`);
+	if (fieldValue != "") {
+		return true;
+	}
+	else if (fieldValue == "") {
 		return false;
 	}
 }
