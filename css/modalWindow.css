@@ -1,52 +1,77 @@
-/* ??? Не понимаю как правильно делать иерархию для классов? */
 p {
-	margin: auto;
-	padding: 10px;
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
+	text-align: left;
 }
 
-div {
-	width: 200px;
-	/* height: 100px; */
-	margin: auto;
-	padding: 10px;
+.header__inner p {
 	text-align: center;
 }
 
-.classDiv {
-	height: 100px;
-}
-
-.btn {
+.header__button {
+	display: flex;
 	margin: auto;
-	padding: 5px;
+	align-items: center;
 }
 
-.btn-input {
-	margin: auto;
-	margin-top: 36px;
-	padding: 5px;
+.header__button:hover {
+	cursor: pointer;
+}
+/* Скрытие окна */
+.modal {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.9s;
+	left: 0;
+	top: -1000px;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.9);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 60px 15px;
+}
+/* отображение окна */
+.modal_active {
+	position: fixed;
+	top: 0;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.9s;
 }
 
-.form {
-	width: 300px;
-	/* height: 150px; */
-	margin: auto;
-	padding: 10px;
-}
-.form-modal-hidden {
-	display: none;
+.modal__content {
+	width: 100%;
+	max-width: 500px;
+	position: relative;
+	padding: 50px;
+	background: #f9f9f9;
+	border-radius: 3px;
 }
 
-/* .btn-group {
-	height: 150px;
-} */
+.modal__close-button {
+	display: flex;
+	background: #ff0000;
+	width: 30px;
+	height: 30px;
+	justify-content: center;
+	border: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: none;
+	cursor: pointer;
+	outline: none;
+}
 
-.btn-enter,
-.btn-cancel {
-	margin: auto;
-	margin-top: 50px;
-	padding: 5px;
+.modal__title {
+	font-size: 1.8rem;
+	/* text-transform: uppercase; */
+	margin: 0 0 15px;
+	text-align: center;
+}
+
+.modal__description {
+	font-size: 1.2rem;
+	text-align: center;
 }
