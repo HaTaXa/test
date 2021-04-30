@@ -75,8 +75,6 @@ document.addEventListener("keydown", function(event) {
 		// inputButton.setAttribute("disabled", "enabled"); // не срабатывает
 		// inputButton.setAttribute("disabled", "true"); // не срабатывает
 
-		// !?! в чем смысл, не видно разницы между записями выше и ниже?
-
 		// не срабатывает - не понимаю как правильно прописывать
 		// $(inputButton).removeAttribute("disabled"); // делаем активной
 	}
@@ -87,8 +85,6 @@ inputButton.addEventListener ("click", () => {
 	// inputButton.setAttribute("disabled", "disabled");
 	// formModalWindow.classList.remove("form-modal-hidden"); // можно не делать remove
 	
-	// !?! в чем смысл, не видно разницы между записями выше и ниже?
-
 	// не срабатывает - не понимаю как правильно прописывать
 	// $(formModalWindow).removeClass('form-modal-hidden'); // можно не делать remove
 	// $(inputButton).setAttribute("disabled", "disabled"); // кнопка недоступна
@@ -104,12 +100,10 @@ btnCancel.onmouseout = function(event) {
 
 btnCancel.addEventListener("click", () => {
 	formShowHide("form-modal-hidden");
-	// inputButton.removeAttribute("disabled");
+	inputButton.removeAttribute("disabled");
 	// formModalWindow.classList.add("form-modal-hidden");
 	// inputButton.setAttribute("disabled", "enabled"); // не срабатывает
 	// inputButton.setAttribute("disabled", "false"); // не срабатывает
-
-	// !?! в чем смысл, не видно разницы между записями выше и ниже?
 
 	// не срабатывает - не понимаю как правильно прописывать
 	// $(inputButton).removeAttribute("disabled"); // делаем активной
