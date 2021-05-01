@@ -73,7 +73,7 @@ createCard() {
 
 	//если путь к картинке задан, то создаём её
 	if(typeof this.ImageSource != "undefined") {
-	this.createImage(card);
+		this.createImage(card);
 	}
 }
 
@@ -94,33 +94,33 @@ modifiedCard(typeCard, imgUrl) {
 	this.ImageSource = imgUrl;
 
 	//удаление изображения в случае выбора "Без фото"
-	if(typeCard == "card-no-photo") {      
+	if(typeCard == "card-no-photo") {
 	document.querySelector(".card img").remove();
 	}
 	else {
-	if(!document.querySelector(".card img")) {
-		this.createImage(document.getElementById("card"));
+		if(!document.querySelector(".card img")) {
+			this.createImage(document.getElementById("card"));
+		}
+		}
+		document.getElementById("card").className = `card ${this.ClassName}`;
 	}
-	}
-	document.getElementById("card").className = `card ${this.ClassName}`;
-}
 }
 
 for(let radio of radioButtons) {
-radio.addEventListener("change", () => {
-	if(radio.value == "card-no-photo") {
-		imgUrl = undefined;
-	}
-	else {
-	imgUrl = "https://picsum.photos/500/300";
-	}
+	radio.addEventListener("change", () => {
+		if(radio.value == "card-no-photo") {
+			imgUrl = undefined;
+		}
+		else {
+		imgUrl = "https://picsum.photos/500/300";
+		}
 
-	if(document.getElementById("card")) {
-	card.modifiedCard(radio.value, imgUrl);
-	}
-	else {
-	card = new Card("card", radio.value, text, imgUrl);
-	card.createCard();
-	}
-});
+		if(document.getElementById("card")) {
+		card.modifiedCard(radio.value, imgUrl);
+		}
+		else {
+		card = new Card("card", radio.value, text, imgUrl);
+		card.createCard();
+		}
+	});
 }

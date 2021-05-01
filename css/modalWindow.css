@@ -3,6 +3,7 @@ p {
 }
 
 .header__inner p {
+	/* margin: auto; */
 	text-align: center;
 }
 
@@ -15,28 +16,32 @@ p {
 .header__button:hover {
 	cursor: pointer;
 }
-/* Скрытие окна */
+/* скрытие окна */
 .modal {
 	position: absolute;
 	visibility: hidden;
-	opacity: 0;
+	opacity: 0; /* уровень прозрачности елемента */
 	transition: 0.9s;
 	left: 0;
+	/* top: 0;
+	z-index: 1000; */ /* z-index - расположение окна над всеми элементами */
 	top: -1000px;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.9);
+	background: rgba(0, 0, 0, .9); /* формат rgba, где ".9" - это прозрачность в 90% */
+/* центрирование элемента с отступами и возможностью вертикальной прокрутки */
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
+	/* overflow-y: scroll; */ /* вертикальная прокрутка */
 	padding: 60px 15px;
 }
-/* отображение окна */
+/* вывод и отображение окна */
 .modal_active {
 	position: fixed;
 	top: 0;
 	visibility: visible;
-	opacity: 1;
+	opacity: 1; /* уровень прозрачности елемента */
 	transition: 0.9s;
 }
 
@@ -61,9 +66,19 @@ p {
 	top: 0;
 	background: none;
 	cursor: pointer;
+/* анимационное вращение */
+	-webkit-transition: .3s;
+			transition: .3s;
+/* анимационное вращение */
 	outline: none;
 }
-
+/* анимационное вращение при наведении курсора */
+.modal__close-button:hover {
+	-webkit-transition: .3s;
+			transition: .3s;
+	-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+}
 .modal__title {
 	font-size: 1.8rem;
 	/* text-transform: uppercase; */

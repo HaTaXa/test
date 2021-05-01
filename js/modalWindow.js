@@ -3,14 +3,6 @@
 // (i) Потому что я не понимаю нагромождение кода дополнительным синтаксисом.
 
 $(function () {
-// Закрытие модального окна при клике вне его контентной области
-	// $('.modal').mouseup(function(e) {
-	// 	let modalContent = $(".modal__content");
-	// 	if (!modalContent.is(e.target) && modalContent.has(e.target).length === 0) {
-	// 	$(this).removeClass('modal_active');
-	// 	}
-	// });
-
 // Нажатие клавиши Esc.
 // Если класс существует, значит модальное окно выведено на дисплей, => надо удалить класс, чтобы скрыть модальное окно по нажатию на esc
 	$(document).keyup(function(e) {
@@ -21,6 +13,13 @@ $(function () {
 			}
 		}
 	});
+// Закрытие модального окна при клике вне его контентной области
+$('.modal').mouseup(function(e) {
+	let modalContent = $(".modal__content");
+	if (!modalContent.is(e.target) && modalContent.has(e.target).length === 0) {
+	$(this).removeClass('modal_active');
+	}
+});
 // Добавляем класс модальному окну, чтобы оно появилось
 	$('#callback-button').click(function() {
 		$('.modal').addClass('modal_active');
