@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, minimum-scale=1">
+
 	<title>Страница справочника</title>
 	<!-- скрипты js, jquery -->
 	<!-- <script type="text/javascript" src="js/autotoc.js"></script> -->
@@ -30,6 +32,7 @@
 
 </head>
 <body>
+<!-- Баннер на официальный сайт компании -->
 	<div id="idContainer" class="container">
 		<div id="idBanner" style="display: none;">
 			<a href="http://www.1gl.ru" title="Официальный сайт БСС «Система Главбух»" target="_blank">
@@ -37,7 +40,7 @@
 				<p>www.1gl.ru</p>
 			</a>
 		</div>
-
+<!-- Панель инструментов -->
 		<div id="idToolbar" class="compact-toolbar" style="min-width: 850px;">
 			<table id="idToolbarTable">
 				<tbody>
@@ -106,7 +109,7 @@
 								<span class="nav-text-on">Показать/Скрыть</span>
 							</div>
 							<div class="nav-icon-box-right">
-								<span id="idNavIconShowHide" class="nav-icon" onclick="expandHiddenText()">
+								<span id="idNavIconShowHide" class="nav-icon" onclick="textHiddenExpand()">
 									<img id="idShowHideOn" src="image/showhide.png" title="Развернуть/Свернуть скрытый текст в текущей теме" alt="Развернуть/Свернуть скрытый текст в текущей теме" style="display: inline;">
 								</span>
 								<img id="idShowHideOff" src="image/showhideoff.png" style="display: none;">
@@ -170,6 +173,20 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+<!-- Боковая панель навигации -->
+		<div id="idNavBox" style="width: 275px; margin-top: 12px; top: 41px;">
+			<div id="idDragDivider"></div>
+			<div id="idNavHandle">
+				<a href="javascript: void(0)" onclick="NavShowHide()">
+					<img id="idNavShowHide" src="image/nav_close.png" title="Скрыть содержимое панели" alt="Скрыть содержимое панели" style="border: 0;">
+				</a>
+			</div>
+			<div id="idNavBorder">
+				<!-- ??? внутри div указан скрипт на эту функцию -->
+				writeTOC();
+				<iframe id="idNavigation" name="iframeNavigation" class="scroll-pane" src="navigationPane.htm" title="Navigation Pane"></iframe>
+			</div>
 		</div>
 	</div>
 

@@ -6,7 +6,7 @@ body {
 	overflow: hidden;
 }
 
-div#hmnavborder {
+div#idNavBorder {
 	background-color: #5e5e5e;
 	border-color: #000000;
 	background: -moz-linear-gradient(top, #666666, #222222);
@@ -17,8 +17,8 @@ div#hmnavborder {
 	-ms-filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = #ffffff, endColorstr = #222222);
 	border-width: 1px;
 }
-
-div#hmnavbox {
+/* Боковая панель навигации */
+div#idNavBox {
 	background-color: #2a2a2a;
 	background: -moz-linear-gradient(top, #888888, #000000);
 	background: -ms-linear-gradient(top, #888888, #000000);
@@ -37,7 +37,7 @@ div#hmtopicbox, div#hmcontentbox {
 .banner-toolbar, /* класс создается вместо ".compact-toolbar" и наоборот при нажатии на кнопку Показать/Скрыть */
 /* ??? не могу отследить где происходит замена на этот класс */
 .tableToolbar,
-div#hmnavbox,
+div#idNavBox, /* Боковая панель навигации */
 div#hmtopicbox,
 div#tabsMenu,
 div#idBanner {
@@ -55,7 +55,7 @@ div#idBanner {
 	border-width: 1px;
 }
 /* Shadows */
-div#hmnavbox,
+div#idNavBox, /* Боковая панель навигации */
 div#hmtopicbox,
 .banner-toolbar {
 	-moz-box-shadow: 2px 2px 2px #3f3f3f;
@@ -79,7 +79,6 @@ img#idPrinterOn {
 	vertical-align: top;
 }
 /* При наведении курсора */
-/* не получается зафиксировать иконки */
 img.nav-icon:hover,
 img.nav-icon-H:hover,
 img#idQuickSearchOn:hover,
@@ -91,8 +90,6 @@ img#idShowHideOn:hover,
 img#idPermalinkOn:hover,
 img#idFeedBackOn:hover,
 img#idPrinterOn:hover {
-	/* position: absolute;
-	transform: translate(50%, 50%); */
 	margin: 0;
 	padding: 2px 4px 2px 4px;
 	border-color: #fff;
@@ -103,6 +100,17 @@ img#idPrinterOn:hover {
 	-webkit-border-radius: 5px;
 	font-weight: normal;
 }
+/* не получается зафиксировать иконки */
+/* div#idSearch:hover,
+div.nav-icon-box-left:hover,
+div.nav-icon-box-right:hover, */
+/* div#idFeedBackTool:hover { */
+	/* display: block; */
+	/* position: absolute; */
+	/* left: 50%; top: 50%; */
+	/* transform: translate(-50%, -50%); */
+/* } */
+
 /* Для Off */
 img.nav-icon,
 img.nav-icon-H,
@@ -271,12 +279,13 @@ div#unclicker {
 	display: none;
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
-	/* background-image: url("spacer.gif"); */ /* ??? проверить для чего нужен */
+/* ??? (i) не знаю для чего, но используется при внедрении боковой панели навигации */
+	background-image: url("../image/spacer.gif");
 	z-index: 200;
 }
 /* Предотвращение выбора инструментов */
 /* (i) Символ «*» - универсальный селектор, совпадает с именем любого типа элемента. Соответствует любому отдельному элементу в дереве док. */
-div#hmnavbox *, div#hmtabscontrols * {
+div#idNavBox *, div#hmtabscontrols * {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -292,8 +301,8 @@ div#idToolbar {
 	padding: 5px 5px 0px 5px;
 }
 
-div#hmnavbox,
-div#hmnavborder,
+div#idNavBox, /* Боковая панель навигации */
+div#idNavBorder,
 div#hmtopicbox,
 .compact-toolbar, /* класс создается вместо ".banner-toolbar" и наоборот при нажатии на кнопку Показать/Скрыть */
 .banner-toolbar {
@@ -353,8 +362,6 @@ div#idBanner p {
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	margin: 0px;
-
-	transition-duration: 500ms;
 }
 
 table#idToolbarTable {
@@ -437,20 +444,20 @@ div#idContainer {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
 }
-
-div#hmnavbox {
+/* Боковая панель навигации */
+div#idNavBox {
 	position: absolute;
 	left: 0; bottom: 0;
 	top: 48px; width: 275px;
 	padding: 2px 2px 2px 5px;
 }
 
-div#hmnavborder {
+div#idNavBorder {
 	position: absolute;
 	top: 0px; right: 0px; bottom: 0px; left: 0px;
 }
 
-iframe#hmnavigation,
+iframe#idNavigation,
 iframe#hmcontent {
 	position: absolute;
 	left: 0; top: 0;
@@ -458,7 +465,13 @@ iframe#hmcontent {
 	height: 100%;
 }
 
-div#hmnavhandle {
+iframe#idNavigation {
+	height: 100%; width: 100%;
+	border: 0;
+	scroll-behavior: auto;
+}
+
+div#idNavHandle {
 	position: absolute;
 	width: 15px;
 	height: 18px;
@@ -468,7 +481,7 @@ div#hmnavhandle {
 	z-index: 200;
 }
 /* ??? */
-div#hmdragdivider{
+div#idDragDivider {
 	position: absolute;
 	width: 8px;
 	top: 26px;
@@ -721,7 +734,7 @@ ul.tabs li.current a {
 }
 
 ul.tabs a,
-div#hmnavhandle a {
+div#idNavHandle a {
 	outline: none;
 }
 /* Изначальное скрытие всех панелей */

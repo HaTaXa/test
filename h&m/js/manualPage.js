@@ -1,4 +1,4 @@
-
+// "Элементы панели инструментов"
 
 // кнопка Быстрый поиск
 function remoteSearch() {
@@ -49,7 +49,7 @@ function bannerShowHide() {
 	}
 }
 // кнопка Развернуть/Свернуть
-function expandHiddenText() {
+function textHiddenExpand() {
 	alert(`(i) Пока что в разработке`);
 }
 // кнопка Постоянная ссылка
@@ -70,5 +70,13 @@ function pagePrevious(hrefString) {
 }
 // кнопка Вперед
 function pageNext(hrefString) {
+	alert(`(i) Пока что в разработке`);
+}
+// Элементы боковой панели навигации
+function NavShowHide() {
+	alert(`(i) Пока что в разработке`);
+}
+// данная функция указана как скрипт в теле блока div боковой панели навигации
+function writeTOC() {
 	alert(`(i) Пока что в разработке`);
 }
