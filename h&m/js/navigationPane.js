@@ -80,7 +80,7 @@ $(document).ready(function () {
 
 // ***************************************
 
-var parentScope = parent.hmNavigationFrame;
+var parentScope = parent.navigationPane;
 if (!parentScope) {
 	var s = document.createElement("script");
 	s.setAttribute("type", "text/javascript");

@@ -47,6 +47,7 @@ function bannerShowHide() {
 	else if ($(elemToolbar).hasClass('banner-toolbar')) {
 		$(elemToolbar).removeClass('banner-toolbar').addClass('compact-toolbar');
 	}
+	$("div#idNavBox").toggleClass("nav-box-up nav-box-down");
 }
 // кнопка Развернуть/Свернуть
 function textHiddenExpand() {

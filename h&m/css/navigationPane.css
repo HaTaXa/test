@@ -30,6 +30,13 @@ a:focus {
 	background-position: left center;
 	vertical-align: bottom;
 } /* Vertical spacing between TOC items */
+/* #idToc li:last-child {
+	padding: 0 0 3px 0;
+} */
+li#idToc_li2,
+li#idToc_li3 {
+	padding: 4px 0 4px 0;
+}
 #idToc ul {
 	margin: 2px 0 0 0;
 	padding: 0;
@@ -38,12 +45,11 @@ a:focus {
 /* TOC LIST CSS */
 div#idTocHeader {
 	position: absolute;
-	top: 10px;
-	left: 10px;
-	right: 18px;
+	top: 10px; left: 10px; right: 18px;
 }
 div#idTocBody {
 	position: absolute;
+/* ??? (i) не знаю для чего, но используется при внедрении боковой панели навигации */
 	background-image: url("../image/spacer.gif");
 	top: 85px;
 	left: 7px;
@@ -54,6 +60,7 @@ div#idTocBody {
 	border-color: #3f3f3f;
 	border-width: 1px 0 1px 0;
 	padding-top: 7px;
+	padding-bottom: 7px;
 	margin-right: 2px;
 }
 div#tree {
@@ -147,6 +154,34 @@ li.heading1 {
 	color: silver;
 	text-decoration: none;
 }
+.heading7 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: silver;
+	text-decoration: none;
+}
+.heading8 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: silver;
+	text-decoration: none;
+}
+.heading9 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: silver;
+	text-decoration: none;
+}
+.heading10 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: silver;
+	text-decoration: none;
+}
 .hilight1 {
 	font-family: Arial, Helvetica;
 	font-weight: normal;
@@ -188,6 +223,36 @@ li.heading1 {
 	text-decoration: none;
 }
 .hilight6 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #000000;
+	background: #dedede;
+	text-decoration: none;
+}
+.hilight7 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #000000;
+	background: #dedede;
+	text-decoration: none;
+}
+.hilight8 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #000000;
+	background: #dedede;
+	text-decoration: none;
+}.hilight9 {
+	font-family: Arial, Helvetica;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #000000;
+	background: #dedede;
+	text-decoration: none;
+}.hilight10 {
 	font-family: Arial, Helvetica;
 	font-weight: normal;
 	font-size: 10pt;

@@ -22,7 +22,7 @@
 	<link rel="shortcut icon" href="image/bss_favicon.ico" type="image/x-icon">
 
 	<!-- еще скрипты js, jquery -->
-	
+
 	<!-- <script type="text/javascript" src="js/helpman_settings.js"></script> -->
 	<!-- <script type="text/javascript" src="js/helpman_navigation.js"></script> -->
 	<!-- <script type="text/javascript" src="js/hmwebhelp.js"></script> -->
@@ -35,7 +35,7 @@
 <!-- Баннер на официальный сайт компании -->
 	<div id="idContainer" class="container">
 		<div id="idBanner" style="display: none;">
-			<a href="http://www.1gl.ru" title="Официальный сайт БСС «Система Главбух»" target="_blank">
+			<a href="http://www.1gl.ru" title="БСС «Система Главбух» официальный сайт" target="_blank">
 				<div><img src="image/bg-information.gif" alt="БСС «Главбух»."></div>
 				<p>www.1gl.ru</p>
 			</a>
@@ -175,7 +175,8 @@
 			</table>
 		</div>
 <!-- Боковая панель навигации -->
-		<div id="idNavBox" style="width: 275px; margin-top: 12px; top: 41px;">
+<!-- для idNavBox style="width: 275px; margin-top: 12px; top: 41px;" -->
+		<div id="idNavBox" class="nav-box-up">
 			<div id="idDragDivider"></div>
 			<div id="idNavHandle">
 				<a href="javascript: void(0)" onclick="NavShowHide()">
@@ -183,8 +184,8 @@
 				</a>
 			</div>
 			<div id="idNavBorder">
-				<!-- ??? внутри div указан скрипт на эту функцию -->
-				writeTOC();
+				<!-- ??? внутри div указан скрипт на эту функцию, интересно для чего она нужна? -->
+				<!-- writeTOC(); -->
 				<iframe id="idNavigation" name="iframeNavigation" class="scroll-pane" src="navigationPane.htm" title="Navigation Pane"></iframe>
 			</div>
 		</div>
