@@ -445,7 +445,8 @@ div#idContainer {
 	top: 0; bottom: 0; left: 0; right: 0;
 }
 /* Боковая панель навигации */
-div#idNavBox {
+div#idNavBox,
+div#idNavBox.nav-box-up {
 	position: absolute;
 	left: 0; bottom: 0;
 	top: 60px; width: 310px;
@@ -453,8 +454,15 @@ div#idNavBox {
 }
 
 div#idNavBox.nav-box-down {
-	position: absolute;
 	top: 180px;
+}
+
+div#idNavBox.nav-box-show {
+	left: 0;
+}
+
+div#idNavBox.nav-box-hide {
+	left: -300px;
 }
 
 div#idNavBorder {
@@ -486,7 +494,7 @@ div#idNavHandle {
 	border-right: 0;
 	z-index: 200;
 }
-/* ??? */
+/* Разделитель между боковой панелью навигации и текстовым топиком */
 div#idDragDivider {
 	position: absolute;
 	width: 8px;
@@ -497,7 +505,7 @@ div#idDragDivider {
 	z-index: 100;
 }
 
-div#hmtopicpane {
+div#idTopicPane {
 	position: absolute;
 	left: 292px; right: 0px;
 	bottom: 0px;
@@ -522,7 +530,7 @@ div#hmtabsCtab {
 	height: 18px;
 	width: 38px;
 	z-index: 201;
-	border-width:  1px;
+	border-width: 1px;
 	border-style: solid;
 	border-bottom: 0px;
 	overflow: hidden;

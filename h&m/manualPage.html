@@ -174,10 +174,13 @@
 				</tbody>
 			</table>
 		</div>
-<!-- Боковая панель навигации -->
-<!-- для idNavBox style="width: 275px; margin-top: 12px; top: 41px;" -->
-		<div id="idNavBox" class="nav-box-up">
-			<div id="idDragDivider"></div>
+		<!-- Боковая панель навигации -->
+		<!-- для idNavBox
+			style="width: 275px; margin-top: 12px; top: 41px; left: 0px;"
+			style="width: 275px; margin-top: 12px; top: 41px; left: -270px;" -->
+		<div id="idNavBox" class="nav-box-up nav-box-show">
+			<!--  -->
+			<div id="idDragDivider" style="cursor: col-resize;"></div>
 			<div id="idNavHandle">
 				<a href="javascript: void(0)" onclick="NavShowHide()">
 					<img id="idNavShowHide" src="image/nav_close.png" title="Скрыть содержимое панели" alt="Скрыть содержимое панели" style="border: 0;">
@@ -187,6 +190,9 @@
 				<!-- ??? внутри div указан скрипт на эту функцию, интересно для чего она нужна? -->
 				<!-- writeTOC(); -->
 				<iframe id="idNavigation" name="iframeNavigation" class="scroll-pane" src="navigationPane.htm" title="Navigation Pane"></iframe>
+			</div>
+			<div id="idTopicPane">
+
 			</div>
 		</div>
 	</div>
@@ -203,6 +209,6 @@
 	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 	<!-- ************************************************************ -->
 	<!-- другие js-скрипты -->
-	<script src="js/manualPage.js"></script>
+	<script src="js/manualPage.js" async></script>
 </body>
 </html>

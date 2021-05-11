@@ -27,6 +27,9 @@ function newTab() {
 // кнопка Показать/Скрыть
 function bannerShowHide() {
 	// alert(`(i) Пока что в разработке`);
+
+	// !!! надо переделать, можно не объявлять переменные, а обращаться напряму
+
 	let elemBanner = document.getElementById("idBanner");
 	let elemToolbar = document.getElementById('idToolbar');
 
@@ -73,9 +76,18 @@ function pagePrevious(hrefString) {
 function pageNext(hrefString) {
 	alert(`(i) Пока что в разработке`);
 }
-// Элементы боковой панели навигации
+
+// *** Элементы боковой панели навигации ***
+
 function NavShowHide() {
-	alert(`(i) Пока что в разработке`);
+	// alert(`(i) Пока что в разработке`);
+	$("div#idNavBox").toggleClass("nav-box-show nav-box-hide");
+	if ($("div#idDragDivider").css('cursor') == 'col-resize') {
+		$("div#idDragDivider").css('cursor', 'default');
+	}
+	else if ($("div#idDragDivider").css('cursor') == 'default') {
+		$("div#idDragDivider").css('cursor', 'col-resize');
+	}
 }
 // данная функция указана как скрипт в теле блока div боковой панели навигации
 function writeTOC() {

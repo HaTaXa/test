@@ -19,6 +19,18 @@ a:focus {
 	outline: #707070 dashed thin;
 }
 
+img#idFeedBackOn:hover {
+	margin: 0;
+	padding: 2px 4px 2px 4px;
+	border-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-weight: normal;
+}
+
 /* TOC LIST CSS */
 #idToc {
 	margin: 0;

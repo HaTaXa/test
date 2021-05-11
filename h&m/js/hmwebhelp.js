@@ -1,5 +1,5 @@
 /*! Main WebHelp functions for HM Premium Pack Version 2.71
-	Copyright (c) 2008-2015 by Tim Green 
+	Copyright (c) 2008-2015 by Tim Green
 	All rights reserved. */
 if (hmnavpages.mainWindowName !== "") {
 	$(window).attr({
@@ -260,7 +260,7 @@ $(function () {
 	);
 });
 function closePermalink() {
-	$("div#permalink").css("visibility", "hidden");
+	$("div#idPermalinkOn").css("visibility", "hidden");
 	$("div#unclicker").unbind("click.closeperma");
 	$("div#unclicker").hide();
 	document.onselectstart = function () {
@@ -336,7 +336,7 @@ function doPermalink(a) {
 			};
 			break;
 		default:
-			if ($("div#permalink").css("visibility") == "visible") {
+			if ($("div#idPermalinkOn").css("visibility") == "visible") {
 				closePermalink();
 				return;
 			}
@@ -360,7 +360,7 @@ function doPermalink(a) {
 				$("tr#offlinemessage").show();
 				$("#selectPermalink, #bookmarkPermalink").attr("disabled", "disabled");
 			}
-			$("div#permalink").css("visibility", "visible");
+			$("div#idPermalinkOn").css("visibility", "visible");
 			$("textarea#plinkBox").select();
 			break;
 	}
@@ -1384,13 +1384,13 @@ var hmWebHelp = {
 	},
 	resizeNav: function (f, d) {
 		hmWebHelp.deSelect();
-		if ($("img#navshowhide").offset().left > 100) {
+		if ($("img#idNavShowHide").offset().left > 100) {
 			var c =
 				!document.all && !window.opera ? f.clientX - d : event.clientX - d;
 			var a = hmWebHelp.navWidth + c < 180 ? 180 : hmWebHelp.navWidth + c;
 			var b = a + 17;
-			$("div#hmnavbox").css("width", a + "px");
-			$("div#hmtopicpane").css("left", b + "px");
+			$("div#idNavBox").css("width", a + "px");
+			$("div#idTopicPane").css("left", b + "px");
 		}
 	},
 	unQuot: function (a) {
@@ -1574,12 +1574,12 @@ var hmWebHelp = {
 			}
 		}
 		$("body").prepend('<div id="unclicker"></div>');
-		$("div#hmnavbox").css("width", hmWebHelp.navWidth + "px");
-		$("div#hmtopicpane").css("left", hmWebHelp.navWidth + 17 + "px");
+		$("div#idNavBox").css("width", hmWebHelp.navWidth + "px");
+		$("div#idTopicPane").css("left", hmWebHelp.navWidth + 17 + "px");
 		hmpldata.show = hmpldata.show && hmBrowser.desktopOS && !hmBrowser.IE8;
 		if (hmpldata.show) {
 			$("body").prepend(
-				'<div id="permalink" class="popups"><table cellspacing="3" cellpadding="0" width="400" height="50"><tr><td align="left"><div id="permalink_box" style="position:relative">&nbsp;<input type="button" id="selectPermalink" value="' +
+				'<div id="idPermalinkOn" class="popups"><table cellspacing="3" cellpadding="0" width="400" height="50"><tr><td align="left"><div id="permalink_box" style="position:relative">&nbsp;<input type="button" id="selectPermalink" value="' +
 					hmpldata.select +
 					'" /></div></td><td align="center"><input type="button" id="bookmarkPermalink" value="' +
 					hmpldata.bookmark +
@@ -1590,7 +1590,7 @@ var hmWebHelp = {
 					'</p></td></tr><tr><td colspan="3" align="center"> <textarea id="plinkBox" readonly="readonly"></textarea></td></tr></table></div>'
 			);
 			$("td#idTopicNavTD").prepend(
-				'<div class="nav-icon-box-right" id="idPermalinkTool"><span id="idNavIconPermalink" onclick="doPermalink(hmnavpages.top);"><img id="idPermalinkOn" class="nav-icon" src="permalink.png" alt="' +
+				'<div class="nav-icon-box-right" id="idPermalinkTool"><span id="idNavIconPermalink" onclick="doPermalink(hmnavpages.top);"><img id="idPermalinkOn" class="nav-icon" src="image/permalink.png" alt="' +
 					hmpldata.copy +
 					'" title="' +
 					hmpldata.copy +
@@ -1600,8 +1600,8 @@ var hmWebHelp = {
 			);
 		}
 		$("input[id*='Permalink']").css("cursor", "pointer");
-		$("div#hmnavbox").prepend(
-			'<div id="hmdragdivider" /><div id="hmnavhandle"><a href="javascript: void(0);" onclick="hmWebHelp.showHideNav()"><img src="nav_close.png" id="navshowhide" alt="' +
+		$("div#idNavBox").prepend(
+			'<div id="idDragDivider" /><div id="idNavHandle"><a href="javascript: void(0);" onclick="hmWebHelp.NavShowHide()"><img src="nav_close.png" id="idNavShowHide" alt="' +
 				hminfo.hidenav +
 				'" title="' +
 				hminfo.hidenav +
@@ -1622,13 +1622,13 @@ var hmWebHelp = {
 				c +
 				'" title="Search Tab" height="100%" width="100%" frameborder="0" scrolling="auto"></iframe>'
 		);
-		$("#hmnavbox").css(
+		$("#idNavBox").css(
 			"margin-top",
-			parseInt($("#hmnavbox").css("margin-top")) + 8 + "px"
+			parseInt($("#idNavBox").css("margin-top")) + 8 + "px"
 		);
-		$("#hmtopicpane").css(
+		$("#idTopicPane").css(
 			"margin-top",
-			parseInt($("#hmtopicpane").css("margin-top")) + 8 + "px"
+			parseInt($("#idTopicPane").css("margin-top")) + 8 + "px"
 		);
 		if (hmnavpages.idx == "") {
 			$("li#indextab").hide();
@@ -1639,7 +1639,7 @@ var hmWebHelp = {
 		// стр.1640 выдает ошибку: Uncaught TypeError: $(...).tabs is not a function
 		$("ul.tabs").tabs("div#hmtopicbox > div");
 		hmWebHelp.tabsapi = $("ul.tabs").data("tabs");
-		$("div#hmdragdivider").mousedown(function (k) {
+		$("div#idDragDivider").mousedown(function (k) {
 			if (!hmWebHelp.navHidden) {
 				var j = !document.all && !window.opera ? k.clientX : event.clientX;
 				$("div#unclicker").show().css("cursor", "col-resize");
@@ -1649,7 +1649,7 @@ var hmWebHelp = {
 					})
 					.bind("mouseup", function () {
 						$("div#unclicker").hide().css("cursor", "default");
-						hmWebHelp.navWidth = parseInt($("div#hmnavbox").css("width"), 10);
+						hmWebHelp.navWidth = parseInt($("div#idNavBox").css("width"), 10);
 						$(this).unbind("mousemove");
 						$(this).unbind("mouseup");
 					});
@@ -1723,11 +1723,11 @@ var hmWebHelp = {
 							alert(window.orientation);
 							if (j == 90) {
 								if (hmWebHelp.navHidden) {
-									hmWebHelp.showHideNav();
+									hmWebHelp.NavShowHide();
 								}
 							} else {
 								if (!hmWebHelp.navHidden) {
-									hmWebHelp.showHideNav();
+									hmWebHelp.NavShowHide();
 								}
 							}
 						}, 500);
@@ -1994,8 +1994,8 @@ var hmWebHelp = {
 		if (!hmLayout.banner) {
 			$("div#idToolbar").toggleClass("banner-toolbar compact-toolbar");
 		}
-		$("div#hmnavbox").animate({ top: c }, a);
-		$("div#hmtopicpane").animate({ top: c + b - 5 }, a);
+		$("div#idNavBox").animate({ top: c }, a);
+		$("div#idTopicPane").animate({ top: c + b - 5 }, a);
 	},
 	toggleBanner: function (a) {
 		var e = new Date().getTime();
@@ -2024,15 +2024,15 @@ var hmWebHelp = {
 			$("div#idContainer").slideToggle(hmLayout.bannerSpeed);
 		}
 	},
-	showHideNav: function () {
+	NavShowHide: function () {
 		var a = -(hmWebHelp.navWidth - 5) + "";
 		var b = hmWebHelp.navWidth + 17 + "";
-		if (parseInt($("div#hmnavbox").css("left"), 10) === 0) {
+		if (parseInt($("div#idNavBox").css("left"), 10) === 0) {
 			$("div#hmtocbody", hmWebHelp.tocDoc).css("overflow", "hidden");
-			$("div#hmdragdivider").css("cursor", "default");
-			$("div#hmnavbox").animate({ left: a }, 400, function () {});
-			$("div#hmtopicpane").animate({ left: "22" }, 400, function () {
-				$("img#navshowhide").attr({
+			$("div#idDragDivider").css("cursor", "default");
+			$("div#idNavBox").animate({ left: a }, 400, function () {});
+			$("div#idTopicPane").animate({ left: "22" }, 400, function () {
+				$("img#idNavShowHide").attr({
 					alt: hminfo.shownav,
 					title: hminfo.shownav,
 					src: "nav_open.png",
@@ -2040,11 +2040,11 @@ var hmWebHelp = {
 			});
 			hmWebHelp.navHidden = true;
 		} else {
-			$("div#hmdragdivider").css("cursor", "col-resize");
+			$("div#idDragDivider").css("cursor", "col-resize");
 			$("div#hmtocbody", hmWebHelp.tocDoc).css("overflow", "auto");
-			$("div#hmnavbox").animate({ left: "0" }, 400, function () {});
-			$("div#hmtopicpane").animate({ left: b }, 400, function () {
-				$("img#navshowhide").attr({
+			$("div#idNavBox").animate({ left: "0" }, 400, function () {});
+			$("div#idTopicPane").animate({ left: b }, 400, function () {
+				$("img#idNavShowHide").attr({
 					alt: hminfo.hidenav,
 					title: hminfo.hidenav,
 					src: "nav_close.png",
