@@ -2114,11 +2114,11 @@ var hmWebHelp = {
 		if (b) {
 			$("img#" + a + "On").show();
 			$("img#" + a + "Off").hide();
-			$("span#" + a + "Text").removeClass("navtextOff");
+			$("span#" + a + "Text").removeClass("nav-text-off");
 		} else {
 			$("img#" + a + "On").hide();
 			$("img#" + a + "Off").show();
-			$("span#" + a + "Text").addClass("navtextOff");
+			$("span#" + a + "Text").addClass("nav-text-off");
 		}
 	},
 	initTab: function (a, c, b) {
