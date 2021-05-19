@@ -2,7 +2,7 @@
 
 body {
 	background-color: #3f3f3f;
-	background-image: url(../image/bg_page.jpeg);
+	background-image: url(../image/bg_body.jpeg);
 	overflow: hidden;
 }
 
@@ -29,7 +29,7 @@ div#idNavBox {
 	border-width: 1px;
 }
 
-div#hmtopicbox, div#hmcontentbox {
+div#idTopicBox, div#idContentBox {
 	background-color: #ffffff;
 }
 /* Фон и границы панели инструментов и других компонентов */
@@ -38,8 +38,8 @@ div#hmtopicbox, div#hmcontentbox {
 /* ??? не могу отследить где происходит замена на этот класс */
 .tableToolbar,
 div#idNavBox, /* Боковая панель навигации */
-div#hmtopicbox,
-div#tabsMenu,
+div#idTopicBox, /* контент */
+div#idTabsMenu,
 div#idBanner {
 	border-color: #000000;
 }
@@ -56,7 +56,7 @@ div#idBanner {
 }
 /* Shadows */
 div#idNavBox, /* Боковая панель навигации */
-div#hmtopicbox,
+div#idTopicBox, /* контент */
 .banner-toolbar {
 	-moz-box-shadow: 2px 2px 2px #3f3f3f;
 	-webkit-box-shadow: 2px 2px 2px #3f3f3f;
@@ -65,79 +65,143 @@ div#hmtopicbox,
 /* Инструменты панели инструментов */
 img.nav-icon,
 img.nav-icon-H,
+img#idQuickSearchOff,
+img#idIndexOff,
+img#idSearchOff,
+img#idUndocTabOff,
+img#idNewTabOff,
+img#idExpandOff,
+img#idPermalinkOff,
+img#idFeedBackOff,
+img#idPrinterOff {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 2px 4px 2px 4px;
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border-color: transparent;
+}
+/* ??? че за кнопки я не знаю */
+img#button_off,
+img#social_off {
+	border-color: transparent;
+}
+
+img#idQuickSearchOff,
+img#idIndexOff,
+img#idSearchOff,
+/* img#idUndocTabOff, */
+img#idNewTabOff,
+img#idExpandOff,
+img#idPermalinkOff,
+img#idFeedBackOff,
+img#social_off, /* ??? че за кнопка я не знаю */
+img#idPrinterOff {
+	display: none;
+	cursor: default;
+}
+
+/* img.nav-icon,
+img.nav-icon-H,
 img#idQuickSearchOn,
+img#idTopicOn,
 img#idIndexOn,
 img#idSearchOn,
 img#idUndocTabOn,
 img#idNewTabOn,
 img#idShowHideOn,
+img#idExpandOn,
 img#idPermalinkOn,
 img#idFeedBackOn,
 img#idPrinterOn {
+	position: absolute;
 	margin: 0;
 	padding: 2px 4px 2px 4px;
-	vertical-align: top;
+} */
+
+img#idUndocTabOff,
+img#idUndocTabOn {
+	margin: 0 0 0 10px;
+	/* display: flex;
+	flex-direction: column; */
 }
-/* При наведении курсора */
+img#idNewTabOff,
+img#idNewTabOn {
+	margin: 0 0 0 16px;
+}
+img#idShowHideOff,
+img#idShowHideOn {
+	margin: 0 0 0 26px;
+}
+img#idExpandOff,
+img#idExpandOn {
+	margin: 0 0 0 34px;
+}
+img#idPermalinkOff,
+img#idPermalinkOn {
+	top: 8px;
+	margin: 0 0 0 12px;
+}
+
+/* Наведение курсора на иконку */
 img.nav-icon:hover,
 img.nav-icon-H:hover,
 img#idQuickSearchOn:hover,
+img#idTopicOn:hover,
 img#idIndexOn:hover,
 img#idSearchOn:hover,
 img#idUndocTabOn:hover,
 img#idNewTabOn:hover,
 img#idShowHideOn:hover,
+img#idExpandOn:hover,
 img#idPermalinkOn:hover,
 img#idFeedBackOn:hover,
 img#idPrinterOn:hover {
-	margin: 0;
-	padding: 2px 4px 2px 4px;
+	/* position: absolute; */
+	/* margin: 0;
+	padding: 2px 4px 2px 4px; */
 	border-color: #fff;
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	font-weight: normal;
+	font-weight: normal; /* насыщенность шрифта */
 }
-/* не получается зафиксировать иконки */
-/* div#idSearch:hover,
-div.nav-icon-box-left:hover,
-div.nav-icon-box-right:hover, */
-/* div#idFeedBackTool:hover { */
-	/* display: block; */
-	/* position: absolute; */
-	/* left: 50%; top: 50%; */
-	/* transform: translate(-50%, -50%); */
-/* } */
 
-/* Для Off */
-img.nav-icon,
-img.nav-icon-H,
-img#idQuickSearchOff,
-img#idIndexOff,
-img#idSearchOff,
-img#idUndocTabOff,
-img#idNewTabOff,
-img#idShowHideOff,
-img#idPermalinkOff,
-img#idFeedBackOff,
-img#idPrinterOff,
-/* ??? */
-img#button_off,
-img#social_off {
-	border-color: transparent;
+img#idFeedBackOn:hover {
+	/* position: fixed; */ /* устраняем смещение всплывающей картинки */
+	/* left: 50%;
+	top: 50%; */
+	/* Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций */
+	/* transform: translate(-80%, -5%); */ /* (x, y) */
+	transform: translateX(-80%);
+	-moz-transform: translateX(-80%); /* Для Firefox */
+	-ms-transform: translateX(-80%); /* Для IE */
+	-webkit-transform: translateX(-80%); /* Для Safari, Chrome, iOS */
+	-o-transform: translateX(-80%); /* Для Opera */
+	z-index: 100;
 }
+
+/* Выравнивание по вертикали */
+/* .search-text-on,
+.nav-text-on,
+.nav-text-off {
+	vertical-align: middle;
+} */
+
 /* Мини-кнопка закрытия вкладки */
-img.closetab {
+img.close-tab {
 	display: none;
-}
-/* Выделенная кнопка при наведении на нее курсора */
-img.nav-icon-H {
-	border-color: #ffffff;
 }
 /* Цвет кнопок на панели инструментов */
 .nav-text-on {
+	display: flex;
+	flex-direction: column;
 	color: #dedede;
 }
 .search-text-on {
@@ -146,12 +210,7 @@ img.nav-icon-H {
 .nav-text-off {
 	color: #a1a1a1;
 }
-/* Выравнивание по вертикали */
-.search-text-on,
-.nav-text-on,
-.nav-text-off {
-	vertical-align: middle;
-}
+/* *********************************** */
 /* Не текущие вкладки */
 ul.tabs a {
 	background-color: #6e6e6e;
@@ -161,7 +220,7 @@ ul.tabs a {
 	background: -o-linear-gradient(top,rgb(255,255,255) 3%,rgb(136,136,136) 20%);
 }
 /* Текущие вкладки */
-ul.tabs a.current, div#hmtabsCtab {
+ul.tabs a.current, div#idTabsCtab {
 	background-color: #3f3f3f;
 	background: -moz-linear-gradient(top, #f1f1f1 3%, #3f3f3f 20%);
 	background: -ms-linear-gradient(top, #f1f1f1 3%, #3f3f3f 20%);
@@ -169,7 +228,7 @@ ul.tabs a.current, div#hmtabsCtab {
 	background: -o-linear-gradient(top,rgb(255,255,255) 3%,rgb(63,63,63) 20%);
 }
 /* Границы и затенение вкладок */
-ul.tabs a, ul.tabs a.current, div#hmtabsCtab {
+ul.tabs a, ul.tabs a.current, div#idTabsCtab {
 	border-color: #000000;
 	-moz-box-shadow: 2px -1px 4px -1px #3f3f3f;
 	-webkit-box-shadow: 2px -1px 4px -1px #3f3f3f;
@@ -188,7 +247,7 @@ ul.tabs a.current span {
 	color: #ffffff;
 }
 /* Верхняя граница выпадающей вкладки списка меню */
-div#tabsMenu {
+div#idTabsMenu {
 	border-top-color: #3f3f3f;
 }
 /* Выделение вкладки инструменты при снятии наведения курсора */
@@ -198,7 +257,7 @@ img.tabPlayerH {
 	cursor: pointer;
 }
 /* Цвет фона, тени и углы выпадающей вкладки списка меню */
-div#tabsMenu {
+div#idTabsMenu {
 	-moz-box-shadow: 2px 2px 2px #999;
 	-webkit-box-shadow: 2px 2px 2px #999;
 	box-shadow: 2px 2px 2px #999;
@@ -209,14 +268,14 @@ div#tabsMenu {
 	border-radius: 0px 0px 4px 4px;
 }
 /* Выпадающие вкладки списка элементов меню */
-ul#tabsList li a {
+ul#idTabsList li a {
 	text-decoration: none;
 	color: silver;
 }
-ul#tabsList li a:visited {
+ul#idTabsList li a:visited {
 	color: silver;
 }
-ul#tabsList li a:hover {
+ul#idTabsList li a:hover {
 	color: silver;
 	text-decoration: underline;
 }
@@ -269,56 +328,18 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
-
-table, td, tr, img, p {
-	margin: 0;
-	padding: 0;
-}
-
-div#unclicker {
-	display: none;
+/* ??? не могу отследить где происходит замена на этот класс он нигде не фигурирует */
+.tableToolbar {
 	position: absolute;
-	top: 0; bottom: 0; left: 0; right: 0;
-/* ??? (i) не знаю для чего, но используется при внедрении боковой панели навигации */
-	background-image: url("../image/spacer.gif");
-	z-index: 200;
-}
-/* Предотвращение выбора инструментов */
-/* (i) Символ «*» - универсальный селектор, совпадает с именем любого типа элемента. Соответствует любому отдельному элементу в дереве док. */
-div#idNavBox *, div#hmtabscontrols * {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-/* Иструменты панели инструментов */
-div#idToolbar {
-	/* display: none; */
-	position: relative;
-	height: 50px;
-	padding: 5px 5px 0px 5px;
-}
-
-div#idNavBox, /* Боковая панель навигации */
-div#idNavBorder,
-div#hmtopicbox,
-.compact-toolbar, /* класс создается вместо ".banner-toolbar" и наоборот при нажатии на кнопку Показать/Скрыть */
-.banner-toolbar {
+	left: 0; top: 0;
+	margin: 0;
+	border-width: 1px 0 1px 0;
 	border-style: solid;
-	border-width: 1px;
-	margin: 4px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	border-collapse: collapse;
 }
-
+/* Баннер */
 div#idBanner {
-	display: block;
 	width: 100%;
-	/* width: 527px;
-	max-width: 530px; */
 	height: 120px;
 	margin: auto;
 	padding: 0;
@@ -331,29 +352,9 @@ div#idBanner {
 	background-color: #fff;
 	/* background-color: #3f3f3f; */
 	/* background-image: linear-gradient(180deg, #241e1e 0%,#504e4e 50%,#faf4f4 100%); */
-	/* background-image: url(../image/bg-information.gif);
+	/* background-image: url(../image/bg-banner.gif);
 	background-repeat: no-repeat;
 	background-size: 100%; */
-}
-
-div#idBanner a, p, img {
-	position: relative;
-	left: 0; top: 0; right: 0;
-	font-family: "Times New Roman", Times, serif;
-	color: rgb(0, 0, 0);
-	text-align: center;
-	vertical-align: middle;
-	text-decoration: none;
-}
-
-/* div#idBanner img {
-	box-shadow: 0 0 50px 0 #3f3f3f;
-} */
-
-div#idBanner p {
-	position: relative;
-	top: -62px;
-	/* z-index: 1; */ /* приоритетный порядок слоев */
 }
 
 .banner-toolbar {
@@ -364,32 +365,84 @@ div#idBanner p {
 	margin: 0px;
 }
 
-table#idToolbarTable {
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	border-collapse: collapse;
-	/* display: none; */
-}
-/* ??? не могу отследить где происходит замена на этот класс */
-.tableToolbar {
-	border-width: 1px 0 1px 0;
-	border-style: solid;
-	border-collapse: collapse;
-	position: absolute;
-	left: 0; top: 0;
-	margin: 0;
+div#idBanner a, p, img {
+	font-family: "Times New Roman", Times, serif;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	/* vertical-align: middle; */
+	text-decoration: none;
 }
 
-td.toolbar-left {text-align: left; padding: 0; vertical-align: bottom;}
-td.toolbar-right {text-align: right; padding: 0; vertical-align: bottom;}
-td.toolbar-center {text-align: center; margin: 0 auto; padding: 0; vertical-align: bottom;}
-td.toolbar-search {text-align: left; width: 185px; vertical-align: middle; padding: 0;}
+/* div#idBanner img {
+	box-shadow: 0 0 50px 0 #3f3f3f;
+} */
+
+div#idBanner p {
+	position: relative;
+	top: -62px;
+}
+/* Иструменты панели инструментов */
+div#idToolbar,
+div#idToolbar.toolbar-up {
+	/* display: block; */
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 50px;
+	padding: 0px 5px 0px 5px; /* было 1px 5px 7px 5px; */
+}
+
+div#idToolbar.toolbar-down {
+	top: 116px;
+}
+
+table, td, tr, img, p {
+	margin: 0;
+	padding: 0;
+}
+
+div#idNavBox, /* Боковая панель навигации */
+div#idNavBorder,
+div#idTopicBox, /* контент */
+.banner-toolbar, /* класс заменяется вместо "compact-toolbar" и наоборот при нажатии на кнопку Показать/Скрыть */
+.compact-toolbar {
+	margin: 4px;
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+table#idToolbarTable {
+	width: 100%;
+	height: 50px;
+	border-collapse: collapse;
+}
+
+td.toolbar-left {text-align: left; vertical-align: bottom;}
+td.toolbar-right {text-align: right; vertical-align: bottom;}
+td.toolbar-center {text-align: center; margin: 0 auto; vertical-align: bottom;}
+td.toolbar-search {text-align: left; width: 185px; vertical-align: bottom;}
+
+div#idQuickSearch,
+div.nav-icon-box-left,
+div.nav-icon-box-right {
+	/* position: absolute; */
+	/* width: 100%; */
+	/* top: 0; */
+	/* bottom: 0; */
+	vertical-align: bottom;
+	font-family: Tahoma, Verdana, Arial, sans-serif, Helvetica;
+	font-size: 9px;
+	font-weight: normal;
+}
 
 div.nav-icon-box-left,
 div.nav-icon-box-right {
-	padding: 2px 1px 3px 1px;
 	display: inline-block;
+	padding: 2px 1px 3px 1px;
 	margin-right: 2px;
 	text-align: center;
 	white-space: nowrap;
@@ -397,56 +450,68 @@ div.nav-icon-box-right {
 	line-height: 1em;
 }
 
-div#idSearch,
-div.nav-icon-box-left,
-div.nav-icon-box-right {
-	font-family: Tahoma, Verdana, Arial, sans-serif, Helvetica;
-	font-size: 9px;
-	font-weight: normal;
+/* Quick search box */
+div#idQuickSearch {
+	/* padding: 10px 0 0 0; */
+	/* vertical-align: bottom; */
+	font-weight: bold;
+	min-width: 200px;
 }
-
-img.nav-icon,
-img.navi-conH,
-img#idQuickSearchOff,
-img#idIndexOff,
-img#idSearchOff,
-img#idUndocTabOff,
-img#idNewTabOff,
-img#idShowHideOff,
-img#idPermalinkOff,
-img#idFeedBackOff,
-img#social_off, /* ??? */
-img#idPrinterOff {
+input#idInputSearch {
+	/* float: left; */ /* выравнивание по левому краю, а все остальные элементы обтекают по правой стороне */
+	width: 152px;
+	padding: 0;
 	margin: 0;
-	padding: 2px 4px 2px 4px;
-	border-width: 1px;
-	border-style: solid;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
 }
 
-img#idQuickSearchOff,
-img#idIndexOff,
-img#idSearchOff,
-img#idUndocTabOff,
-img#idNewTabOff,
-img#idShowHideOff,
-img#idPermalinkOff,
-img#idFeedBackOff,
-img#social_off, /* ??? */
-img#idPrinterOff {
-	display: none;
-	cursor: default;
+img#idQuickSearchOn {
+	top: 20px;
+	left: 162px;
 }
+
+span#idQuickSearch {
+	margin-left: 2px;
+}
+
+img.nav-icon-H,
+img.nav-icon {
+	position: absolute;
+	top: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
 /* Компоненты главной страницы контейнера */
+
 div#idContainer {
 	position: absolute;
 	top: 0; bottom: 0; left: 0; right: 0;
 }
+
 /* Боковая панель навигации */
+
+div#idUnclicker {
+	display: none;
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+/* ??? (i) не знаю для чего, но используется при внедрении боковой панели навигации */
+	background-image: url("../image/spacer.gif");
+	z-index: 200;
+}
+/* Предотвращение выбора инструментов */
+/* (i) Символ «*» - универсальный селектор, совпадает с именем любого типа элемента. Соответствует любому отдельному элементу в дереве док. */
+div#idNavBox *, div#idTabControls * {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 div#idNavBox,
-div#idNavBox.nav-box-up {
+div#idNavBox.nav-box-up,
+div#idNavBox.nav-box-show {
 	position: absolute;
 	left: 0; bottom: 0;
 	top: 60px; width: 310px;
@@ -455,10 +520,6 @@ div#idNavBox.nav-box-up {
 
 div#idNavBox.nav-box-down {
 	top: 180px;
-}
-
-div#idNavBox.nav-box-show {
-	left: 0;
 }
 
 div#idNavBox.nav-box-hide {
@@ -471,16 +532,14 @@ div#idNavBorder {
 	bottom: 0px; left: 0px;
 }
 
-iframe#idNavigation,
-iframe#hmcontent {
+iframe#hmnavigation,
+iframe#hmcontent,
+iframe#idFrameIndex,
+iframe#idFrameSearch {
 	position: absolute;
 	left: 0; top: 0;
 	width: 100%;
 	height: 100%;
-}
-
-iframe#idNavigation {
-	height: 100%; width: 100%;
 	border: 0;
 	scroll-behavior: auto;
 }
@@ -505,26 +564,39 @@ div#idDragDivider {
 	z-index: 100;
 }
 
-div#idTopicPane {
+div#idTopicPane,
+div#idTopicPane.topic-pane-up,
+div#idTopicPane.topic-pane-right {
 	position: absolute;
-	left: 292px; right: 0px;
+	left: 326px;
+	top: 76px;
+	right: 0px;
 	bottom: 0px;
+	margin-top: 8px;
 	min-width: 300px;
-	}
+}
+
+div#idTopicPane.topic-pane-down {
+	top: 196px;
+}
+
+div#idTopicPane.topic-pane-left {
+	left: 30px;
+}
+
 /* Компоненты вкладок */
-ul#topictabs {
+ul#idTopicTabs {
 	min-width: 400px;
 }
 
-div#hmtabscontrols {
+div#idTabControls {
 	position: absolute;
 	top: -25px; left: 0; right: 0;
 	height: 31px;
 	background-color: transparent;
-	display: none;
 }
 
-div#hmtabsCtab {
+div#idTabsCtab {
 	position: absolute;
 	top: 11px; left: 10px;
 	height: 18px;
@@ -542,7 +614,7 @@ div#hmtabsCtab {
 	font-weight: normal;
 }
 
-div#hmTabsCtabRight {
+div#idTabsCtabRight {
 	position: absolute;
 	top: 0; right: 0; left: 0; bottom: 0;
 	border: 0px solid black;
@@ -550,32 +622,32 @@ div#hmTabsCtabRight {
 	margin-left: 4px;
 }
 
-div#hmtabswindow {
+div#idTabsWindow {
 	position: absolute;
 	top: 0; right: 10px; left: 54px;
 	overflow: hidden;
 	height: 31px;
 }
 
-div#hmtabslider {
+div#idTabsLider {
 	position: absolute;
 	top: 0; bottom: 0;
 	border-bottom: 0;
 	width: 1200px;
 }
 
-li.hmtabs {
+li.topic-tab {
 	position: relative;
 }
 
-img.closetab {
+img.close-tab {
 	position: absolute;
 	top: 9px; right: 7px;
 	border: 0;
 	z-index: 203;
 }
 /* Содержимое контейнеров */
-div#hmtopicbox {
+div#idTopicBox {
 	position: absolute;
 	top: 0px; right: 0; bottom: 0; left: 0;
 	-webkit-border-radius: 5px;
@@ -583,12 +655,12 @@ div#hmtopicbox {
 	border-radius: 5px;
 }
 
-div#hmcontentbox,
-div#hmindexbox,
-div#hmsearchbox,
+div#idContentBox,
+div#idIndexBox,
+div#idSearchBox,
 div.hmnewtabbox {
 	position: absolute;
-	top: 2px; right: 2px; bottom: 1px; left: 5px;
+	top: 2px; right: 2px; bottom: 1px; left: 3px;
 }
 
 .interface {
@@ -596,21 +668,8 @@ div.hmnewtabbox {
 	font-size: 8pt;
 	font-weight: bold;
 }
-/* Quick search box */
-div#idSearch {
-	padding: 10px 0 0 0;
-	vertical-align: bottom;
-	font-weight: bold;
-	min-width: 200px;
-}
-input#idInputSearch {
-	float: left; /* выравнивание по левому краю, а все остальные элементы обтекают по правой стороне */
-	width: 152px;
-	padding: 0;
-	margin: 0;
-}
 /* Список компонентов меню раскрывающихся вкладок */
-ul#tabsList {
+ul#idTabsList {
 	list-style:none;
 	margin:0 !important;
 	padding:0;
@@ -618,7 +677,7 @@ ul#tabsList {
 	font-size: 11px;
 }
 
-ul#tabsList li {
+ul#idTabsList li {
 	text-indent:0;
 	padding:0;
 	margin:0 !important;
@@ -626,13 +685,13 @@ ul#tabsList li {
 	white-space: nowrap;
 }
 
-div#tabsMenuBox {
+div#idTabsMenuBox {
 	position: absolute;
 	top: 29px; left: 10px;
 	z-index: 202;
 }
 /* Настройки для меню вкладок и меню баннеров */
-div#tabsMenu,
+div#idTabsMenu,
 ul.subnav {
 	clear: both;
 	display: none;
@@ -642,7 +701,7 @@ ul.subnav {
 	z-index: 202;
 }
 /* Tab player icons */
-img.tabPlayer {
+img.tab-player {
 	position: absolute;
 	display: block;
 	padding: 1px;
@@ -665,25 +724,25 @@ img.tabPlayerH {
 	z-index: 200;
 }
 
-img#tabEndLeft {
+img#idTabEndLeft {
 	right: 18px;
 	display: none;
 }
 
-img#tabLeft {
+img#idTabLeft {
 	left:-3px;
 }
 
-img#tabEndRight {
+img#idTabEndRight {
 	right: 7px;
 	display: none;
 }
 
-img#tabRight {
+img#idTabRight {
 	right: 1px;
 }
 
-img#toggleTabMenu {
+img#idToggleMenuTab {
 	left: 7px;
 	top: 2px;
 }

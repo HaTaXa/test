@@ -52,7 +52,7 @@ function hmNoAbsposResize(jdiv, w, h) {
 	var windowWidth, windowHeight;
 	if (self.innerHeight) {	// all except Explorer
 		if(document.documentElement.clientWidth){
-		windowWidth = document.documentElement.clientWidth; 
+		windowWidth = document.documentElement.clientWidth;
 		} else {
 		windowWidth = self.innerWidth;
 		}
@@ -87,7 +87,7 @@ function hmContentFrame() {
 var lastTrackEvent = "";
 
 function track(action, data) {
-	if (gaaccount != "") {	
+	if (gaaccount != "") {
 		if ((window._gat) && (lastTrackEvent != action+data)) {
 		lastTrackEvent = action+data;
 		var pageTracker = window._gat._getTracker(gaaccount);
@@ -118,7 +118,7 @@ function fullexpand(animate) { switchall(true, animate); }
 function fullcollapse(animate) { switchall(false, animate); }
 
 function levelexpand(divID, animate) {
-	var thisDIV = hmNavigationFrame().document.getElementById(divID); 
+	var thisDIV = hmNavigationFrame().document.getElementById(divID);
 	var items = thisDIV.getElementsByTagName("li");
 	for(var i = 0; i < items.length; i++) {
 		if (items[i].parentNode==thisDIV) {
@@ -146,7 +146,7 @@ function loadstate(toc) {
 		if (usecookie) currenttocstate = document.cookie;
 		else { /* load default toc state */
 			if (initialtocstate == 'expandall') fullexpand(false);
-			else { 
+			else {
 			if (initialtocstate == 'expandtoplevel') { fullcollapse(false); levelexpand('toc', false); }
 			else fullcollapse(false);
 			}
@@ -285,7 +285,7 @@ function intoview(thisnode, tree, selectionchanged) {
 	var bt = (hmNavigationFrame().window.pageYOffset)?hmNavigationFrame().window.pageYOffset:hmNavigationFrame().document.body.scrollTop;
 	var bh = (hmNavigationFrame().window.innerHeight)?hmNavigationFrame().window.innerHeight:hmNavigationFrame().document.body.offsetHeight;
 	if ((t+thisnode.offsetHeight-bt) > bh) hmNavigationFrame().window.scrollTo(0,(t+24-bh))
-	else if (t < bt) hmNavigationFrame().window.scrollTo(0,t);              
+	else if (t < bt) hmNavigationFrame().window.scrollTo(0,t);
 }
 
 function collapseunfocused(toc, selectedID) {
@@ -337,7 +337,7 @@ function lazysync(topicID) {
 				if (hmTocSingleClick) {
 					selectionchanged = hilightexpand(currentSpanID);
 				}
-				else { 
+				else {
 					selectionchanged = hilight(currentSpanID);
 				}
 				intoview(currentTopic[0], toc, selectionchanged);
@@ -382,7 +382,7 @@ function hmCreateVSplitter(leftdiv, rightdiv) {
 	});
 
 	split.bind('mousedown', startDrag);
-	
+
 	function startDrag(e) {
 		oldX = (!document.all) ? e.clientX : event.clientX;
 		navWidth = parseInt($(leftdiv).css('width'),10);
@@ -390,19 +390,19 @@ function hmCreateVSplitter(leftdiv, rightdiv) {
 		oldLeft  = $(rightdiv).offset().left;
 		oldWidth = $(rightdiv).outerWidth();
 		oldSplitL = split.offset().left;
-		
+
 		var bg = $('<div id="hmcurtain" style="border:none;padding:0;margin:0;position:absolute;cursor:col-resize;width:100%;height:100%;background-color:transparent"></div>').appendTo('body');
-		bg.bind('mousemove', performDrag); 
+		bg.bind('mousemove', performDrag);
 		bg.bind('mouseup', endDrag);
-		split.bind('mousemove', performDrag); 
+		split.bind('mousemove', performDrag);
 		split.bind('mouseup', endDrag);
-		
+
 		function endDrag() {
 			bg.unbind('mousemove').unbind('mouseup').remove();
 			split.unbind('mousemove').unbind('mouseup');
 		}
 	}
-	
+
 	function performDrag(e) {
 		//deselect:
 		if (window.getSelection) window.getSelection().removeAllRanges();

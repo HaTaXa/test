@@ -1,0 +1,177 @@
+@clrAccent: green;
+
+@colorHeader: blue;
+@baseFontSize: 15px;
+@baseLineHeight: 160%;
+@outlineColor: gold;
+
+@clr1: red;
+@clr2: green;
+
+.shadow(@offsetX: 0, @offsetY: 0, @blur: 15px, @clrShadow: gray) {
+	box-shadow: @offsetX @offsetY @blur @clrShadow;
+}
+
+.my-btn {
+	padding: 5px 15px;
+	background-color: @clrAccent;
+	color: lighten(spin(@clrAccent, 180), 50%);
+	text-transform: uppercase;
+	font-weight: bold;
+	border: 2px solid darken(@clrAccent, 10%);
+	border-radius: 5px;
+
+	transition: all 0.25s;
+
+	&:hover {
+		cursor: pointer;
+		background-color: darken(@clrAccent, 20%);
+		border-color: @clrAccent;
+	}
+}
+
+
+html {
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+
+	:focus {
+		outline-color: @outlineColor;
+	}
+
+	body {
+		font-family: "Georgia", serif;
+	}
+}
+
+.title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	font-family: "Verdana", sans-serif;
+	color: @colorHeader;
+}
+
+.form-equation {
+	width: 50%;
+	margin: auto;
+	margin-top: 40px;
+
+	fieldset {
+		text-align: center;
+
+		border: 2px dotted rgb(230, 243, 114);
+		background-image: linear-gradient(45deg, #def0b5 0%, #e3f5ab 33%, #a9bd69 100%);
+
+		.shadow();
+	}
+
+	.settings {
+		margin-bottom: 20px;
+		background-image: linear-gradient(45deg, #ffe9e9 0%, #ffcccc 50%, #ffa0a0 100%);
+		.shadow(10px, 0, 20px, @clr2);
+	}
+
+	.title {
+		position: relative;
+		top: -15px;
+
+		padding: 0 15px;
+
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: 0.75px;
+		font-size: 0.8rem;
+		font-weight: bold;
+
+		color: @colorHeader;
+	}
+
+	.url {
+		width: 50%;
+	}
+
+	.params {
+		box-sizing: border-box;
+		padding: 5px 10px;
+
+		font-size: 0.95rem;
+		border: 3px ridge rgb(255, 255, 255);
+		color: rgb(3, 187, 19);
+	}
+
+	.range {
+		margin-top: 15px;
+		margin-right: 20px;
+
+		width: 150px;
+	}
+
+	.buttons {
+		margin-top: 15px;
+	}
+
+	.btn {
+		padding: 7px 20px;
+		border: 1px solid rgb(255, 255, 255);
+
+		text-transform: uppercase;
+		font-size: 0.8rem;
+		font-weight: bold;
+		color: #ffffff;
+
+		transition: all 0.25s;
+
+		&:hover {
+			cursor: pointer;
+			filter: saturate(2);
+		}
+
+		&-calc {
+			margin-right: 20px;
+			background-image: linear-gradient(135deg, #669443 0%, #346d0c 50%, #669443 100%);
+		}
+
+		&-reset {
+			margin-right: 20px;
+			background-image: linear-gradient(135deg, #944f43 0%, #c23e27 50%, #944f43 100%);
+		}
+
+		&-play {
+			background-color: rgb(77, 76, 76);
+		}
+
+		&[disabled] {
+			cursor: auto !important;
+			color: rgb(170, 169, 169);
+			background-image: none;
+			background-color: rgb(224, 223, 223);
+		}
+	}
+}
+
+.solution {
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 20px;
+
+	font-size: 1.5rem;
+	background-color: lightyellow;
+	border-left: 20px solid gold;
+
+	strong {
+		font-weight: bold;
+		color: rgb(200, 75, 3);
+	}
+}
+
+.player {
+	display: none;
+	margin: 25px auto;
+	width: 50%;
+
+	&-show {
+		display: block;
+	}
+}

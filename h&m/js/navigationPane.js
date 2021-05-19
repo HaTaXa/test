@@ -1,7 +1,11 @@
+/*
+Взято из файла hmcontent.htm, скрипты прописаны внутри страницы в хедере
+*/
+
 /*! Table of contents init functions for HM Premium Pack Version 2.71 Copyright (c) 2008-2015 by Tim Green All rights reserved. */
 function nshResize(test) {
 	var bodyTop = $("div#idTocHeader").outerHeight() + 15;
-	var bodyBottom = $("div#hmtocfooter").outerHeight() + 5;
+	var bodyBottom = $("div#idTocFooter").outerHeight() + 5;
 	$("div#idTocBody")
 		.css("top", bodyTop + "px")
 		.css("bottom", bodyBottom + "px");
@@ -51,7 +55,7 @@ $(document).ready(function () {
 
 	// Manage external files in TOC and tabs
 	if (tocExtLinks) {
-		var topicExtn = parent.hmWebHelp.textn;
+		var topicExtn = parent.WebHelp.textn;
 		topicExtn = topicExtn.replace(".", "");
 		var $filelinks = $("a[target='hmcontent']").not(
 			"[href^='http'], [href$='" + topicExtn + "']"
@@ -61,10 +65,10 @@ $(document).ready(function () {
 		$filelinks.each(function () {
 			$(this).click(function () {
 				var caption = $(this).children("span").text();
-				$("a#topictablink", parent.document).html(
+				$("a#idTopicTabLink", parent.document).html(
 					"<span>" + caption + "</span>"
 				);
-				parent.hmWebHelp.external = $(this).attr("href");
+				parent.WebHelp.external = $(this).attr("href");
 			});
 		});
 	} // TOC external links
@@ -80,7 +84,7 @@ $(document).ready(function () {
 
 // ***************************************
 
-var parentScope = parent.navigationPane;
+var parentScope = parent.hmNavigationFrame;
 if (!parentScope) {
 	var s = document.createElement("script");
 	s.setAttribute("type", "text/javascript");

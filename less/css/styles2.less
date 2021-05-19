@@ -1,0 +1,116 @@
+@fontPath: "../fonts/";
+
+// цвета фона кнопок (в обычном состоянии и при наведении)
+@bg-default: #e0e0e0;
+@bg-info: #3b83c0;
+@bg-secondary: #404245;
+
+@hover-bg-default: #000000;
+@hover-bg-info: #9b1668;
+@hover-bg-secondary: #b3df3c;
+
+// цвета текста кнопок (в обычном состоянии и при наведении)
+@clr-default: #333;
+@clr-info: #fff;
+@clr-secondary: #fff;
+
+@hover-clr-default: rgb(255, 250, 250);
+@hover-clr-info: #fff;
+@hover-clr-secondary: rgb(1, 80, 28);
+
+// размер текста на кнопке
+@font-size-xs: 10px;
+@font-size-default: 14px;
+@font-size-xl: 18px;
+
+// внутренние отступы в кнопке
+@padding-xs: 2px 4px;
+@padding-default: 6px 12px;
+@padding-xl: 10px 16px;
+
+@line-height: 20px;
+
+.btn-create(@clr: @clr-default, @bg: @bg-default, @pd: @padding-default) {
+	display: inline-block;
+	margin-right: 10px;
+
+	padding: @pd;
+
+	color: @clr;
+	background-color: @bg;
+
+	border: none;
+	border-radius: 5px;
+	transition: all 0.25s;
+}
+
+.btn-size(@pd, @fz) {
+	padding: @pd;
+	font-size: @fz;
+}
+
+.btn-hover(@clr: @clr-default, @bg: @hover-bg-default) {
+	color: @clr;
+	background-color: @bg;
+	cursor: pointer;
+}
+
+.btn {
+	.btn-create();
+
+	&:hover {
+		.btn-hover();
+	}
+
+	&-default {
+		.btn-create(@clr-default, @bg-default);
+
+		&:hover {
+			.btn-hover(@hover-clr-default, @hover-bg-default);
+		}
+	}
+
+	&-info {
+		.btn-create(@clr-info, @bg-info);
+
+		&:hover {
+			.btn-hover(@hover-clr-info, @hover-bg-info);
+		}
+	}
+
+	&-secondary {
+		.btn-create(@clr-secondary, @bg-secondary);
+
+		&:hover {
+			.btn-hover(@hover-clr-secondary, @hover-bg-secondary);
+		}
+	}
+
+	&-size-xs {
+		.btn-size(@padding-xs, @font-size-xs);
+	}
+
+	&-size-default {
+		.btn-size(@padding-default, @font-size-default);
+	}
+
+	&-size-xl {
+		.btn-size(@padding-xl, @font-size-xl);
+	}
+}
+
+@font-face {
+	font-family: 'Pacifico';
+	font-style: normal;
+	font-weight: 400;
+	src: url("@{fontPath}pacifico.ttf") format('truetype');
+}
+
+html {
+	font-size: 15px;
+	line-height: 160%;
+
+	body {
+		font-family: "Pacifico", decorative;
+	}
+}

@@ -4,12 +4,13 @@ div.footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	/*   background-color: #3f3f3f; /* ����� ���� ���� */
-	background-color: transparent; /* ���������� ���� ���� */
-	background-image: url("tab_bg1.png"); /* ������� �������� */
+	/* background-color: #3f3f3f; */
+	background-color: transparent;
+	background-image: url("../image/tab_bg.png");
+	transform: scale(-1, 1);
 	background-size: 100% 100%;
-	margin: 20px auto 0 auto; /* ������� ������ �������� (1-������, 2-������, 3-�����, 4-�����) */
-	padding: 5px 0 10px 0; /* ���� ������ ����������� �������� (1-������, 2-������, 3-�����, 4-�����) */
+	margin: 20px auto 0 auto;
+	padding: 5px 0 10px 0;
 	width: 100%;
 	height: 85px;
 	overflow-y: hidden;
@@ -25,7 +26,7 @@ p.footer {
 	color: #737373;
 	text-align: center;
 	width: 100%;
-	text-indent: 0px; /* ������� ������ - ����� ��� �� ����������� � ��������� ������ � ����� html */
+	text-indent: 0px;
 }
 p.txtleft {
 	font-family: Verdana, Tahoma, Helvetica, Sans-Serif;
@@ -33,7 +34,7 @@ p.txtleft {
 	color: #737373;
 	text-align: left;
 	width: 100%;
-	text-indent: 0; /* ������� ������ */
+	text-indent: 0;
 }
 p.txtright {
 	font-family: Verdana, Tahoma, Helvetica, Sans-Serif;
@@ -41,7 +42,7 @@ p.txtright {
 	color: #737373;
 	text-align: right;
 	width: 100%;
-	text-indent: 0; /* ������� ������ */
+	text-indent: 0;
 }
 p.footer a {
 	color: #737373;
@@ -59,14 +60,14 @@ p.footer a:hover {
 	border-color: #fff;
 	text-decoration: none;
 }
-/* ��� �� ��������. �� ���� ����� �������, ��� ����������� ��� ������ */
+
 table {
 	width: 99%;
 	border: 1;
 	border-color: #fff;
 	border-collapse: collapse;
-	margin: auto; /* ������������ ����� ������� �� ������ ���� */
-	vertical-align: top; /* ������������ ������ �� ������ ������ ����� ������� */
+	margin: auto;
+	vertical-align: top;
 }
 .td_left {
 	width: 33%;

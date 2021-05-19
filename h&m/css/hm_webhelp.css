@@ -54,11 +54,7 @@ div#hmbanner {
 	background: -moz-linear-gradient(top, #dedede 3%, #3f3f3f 30%);
 	background: -ms-linear-gradient(top, #dedede 3%, #3f3f3f 30%);
 	background: -webkit-linear-gradient(top, #dedede 3%, #3f3f3f 30%);
-	background: -o-linear-gradient(
-		top,
-		rgb(241, 241, 241) 3%,
-		rgb(63, 63, 63) 30%
-	);
+	background: -o-linear-gradient(top, rgb(241, 241, 241) 3%, rgb(63, 63, 63) 30%);
 	border-width: 1px;
 }
 
@@ -133,11 +129,7 @@ div#hmtabsCtab {
 	background: -moz-linear-gradient(top, #f1f1f1 3%, #3f3f3f 20%);
 	background: -ms-linear-gradient(top, #f1f1f1 3%, #3f3f3f 20%);
 	background: -webkit-linear-gradient(top, #f1f1f1 3%, #3f3f3f 20%);
-	background: -o-linear-gradient(
-		top,
-		rgb(255, 255, 255) 3%,
-		rgb(63, 63, 63) 20%
-	);
+	background: -o-linear-gradient(top, rgb(255, 255, 255) 3%, rgb(63, 63, 63) 20%);
 }
 
 /* Tabs borders and shadows */
@@ -270,7 +262,7 @@ div#unclicker {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-image: url("spacer.gif");
+	background-image: url("../image/spacer.gif");
 	z-index: 200;
 }
 
@@ -778,7 +770,7 @@ a,
 a:active,
 * :focus {
 	outline: 0;
-	-moz-outline-style: none;
+	outline-style: none;
 }
 
 /* Permalink box styles */
