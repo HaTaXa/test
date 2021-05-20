@@ -1,0 +1,33 @@
+@font-size: 15px;
+@line-height: 160%;
+
+@color: rgb(8, 172, 109);
+@pd: 10px 25px;
+
+@width-container: 70%;
+@height-container: 200px;
+
+.scroll-pane {
+	overflow: auto;
+	margin: 20px auto;
+	width: @width-container;
+	height: @height-container;
+
+	border: 10px solid @color;
+	border-left-style: groove;
+	border-right-style: groove;
+
+	background-color: lightyellow;
+}
+
+p {
+	padding: @pd;
+	line-height: @line-height;
+	text-align: justify;
+	text-indent: @font-size;
+
+	&:first-letter {
+		font-size: 2.5*@font-size;
+		color: @color;
+	}
+}
