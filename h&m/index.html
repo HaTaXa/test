@@ -217,7 +217,7 @@
 					<div id="idTabsMenu" class="idMenu">
 						<ul id="idTabsList">
 							<li>
-								<a id="idTabList0" href="#" onclick="TabSlider.goToTab(0, true)" style="font-weight: bold;">Актуальная Тема:&nbsp;От Автора</a>
+								<a id="idTabList0" href="#" onclick="TabSlider.goToTab(0, true)" style="font-weight: bold;">Актуальная Тема:&nbsp;ЕСД БСС «Главбух»</a>
 							</li>
 							<li>
 								<a id="idTabList1" href="#" onclick="TabSlider.goToTab(1, true)" style="font-weight: normal;">Ключевые слова</a>
@@ -232,20 +232,20 @@
 				<div id="idTabsWindow">
 					<div id="idTabsLider" style="width: 272px;">
 						<ul id="idTopicTabs" class="tabs">
-							<li id="idTopicTab" class="topic-tab" ondblclick="alert(`Нельзя открепить вкладку «Главная»`)" onclick="WebHelp.activePage = WebHelp.currentPage;" tabnum="0">
+							<li id="idTopicTab" class="topic-tab" ondblclick="alert(`Нельзя открепить вкладку «Главная»`)" onclick="topicTab();" tabnum="0">
 								<a id="idTopicTabLink" class="current" href="#topictablink" data="ЕСД БСС «Главбух»" title="ЕСД БСС «Главбух»">
 									<span class="">ЕСД БСС «Главбух»</span>
 								</a>
 							</li>
-							<li id="idIndexTab" class="topic-tab" onclick="WebHelp.activePage ='index';" hpage="index" tabnum="1">
-								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку" style="display: none;">
-								<a href="#indextablink" id="idIndexTabLink" ondblclick="WebHelp.undockTab()" title="Дважды щелкните, чтобы открепить вкладку указатель" class="">
+							<li id="idIndexTab" class="topic-tab" onclick="keywordsTab();" hpage="index" tabnum="1">
+								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку">
+								<a id="idIndexTabLink" href="#indextablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку указатель" class="">
 									<span class="">Ключевые слова</span>
 								</a>
 							</li>
-							<li id="idSearchTab" class="topic-tab" onclick="WebHelp.activePage='search';" hpage="search" tabnum="2" style="display: list-item;">
+							<li id="idSearchTab" class="topic-tab" onclick="searchTab();" hpage="search" tabnum="2" style="display: list-item;">
 								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку" style="display: none; cursor: pointer;">
-								<a href="#searchtablink" id="idSearchTabLink" ondblclick="hmWebHelp.undockTab()" title="Дважды щелкните, чтобы открепить вкладку «Поиск»" class="" style="display: block;">
+								<a id="idSearchTabLink" href="#searchtablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку «Поиск»" class="" style="display: block;">
 									<span class="">Поиск</span>
 								</a>
 							</li>

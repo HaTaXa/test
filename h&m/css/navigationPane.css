@@ -52,6 +52,20 @@ li#idToc_li3 {
 	vertical-align: bottom;
 } /* Indentation per level (negative value) */
 
+.image-expand {
+	background: url(../image/tgl_expand.gif) no-repeat;
+}
+.image-collapse {
+	background: url(../image/tgl_collapse.gif) no-repeat;
+}
+
+.list-show {
+	display: block;
+}
+.list-hide {
+	display: none;
+}
+
 /* TOC LIST CSS */
 div#idTocHeader {
 	position: absolute;

@@ -198,6 +198,7 @@ img#idFeedBackOn:hover {
 img.close-tab {
 	display: none;
 }
+
 /* Цвет кнопок на панели инструментов */
 .nav-text-on {
 	display: flex;
@@ -646,6 +647,13 @@ img.close-tab {
 	border: 0;
 	z-index: 203;
 }
+/* img.close-tab:hover {
+	display: block;
+} */
+/* li.topic-tab .img:hover {
+	display: block;
+} */
+
 /* Содержимое контейнеров */
 div#idTopicBox {
 	position: absolute;
