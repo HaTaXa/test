@@ -1,3 +1,145 @@
+//дожидаемся полной загрузки страницы, (i) но проверка на null все равно нужна, не пойму тогда для чего onload?
+window.onload = function () {
+	// Инициализация переменных
+	topictablink = document.getElementById('idTopicTabLink');
+	indextablink = document.getElementById('idIndexTabLink');
+	searchtablink = document.getElementById('idSearchTabLink');
+
+	// события вкладки топик
+	if (topictablink != null) {
+		// наведение курсора
+		$(topictablink).mouseover(function () {
+			$('ul.tabs a#idTopicTabLink span').addClass('hover');
+		});
+		$(topictablink).mouseout(function () {
+			$('ul.tabs a#idTopicTabLink span').removeClass('hover');
+		});
+		// событие клик
+		topictablink.onclick = function () {
+			$(topictablink).addClass('current');
+			$(indextablink).removeClass('current');
+			$(searchtablink).removeClass('current');
+			$('#idContentBox').css('display', 'block');
+			$('#idIndexBox').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			// делаем доступной кнопку новая вкладка на панели инструментов
+			$('#idNewTabOn').css('display', 'block');
+			$('#idNewTabOff').css('display', 'none');
+			$('#idNewTabText').removeClass('nav-text-off');
+		};
+	};
+	// события вкладки ключевые слова
+	if (indextablink != null) {
+		// наведение курсора
+		$(indextablink).mouseover(function () {
+			$('ul.tabs li#idIndexTab img').css('display', 'block');
+			$('ul.tabs a#idIndexTabLink span').addClass('hover');
+		});
+		$(indextablink).mouseout(function () {
+			$('ul.tabs li#idIndexTab img').css('display', 'none');
+			$('ul.tabs a#idIndexTabLink span').removeClass('hover');
+		});
+		// событие клик
+		indextablink.onclick = function () {
+			$(indextablink).addClass('current');
+			$(topictablink).removeClass('current');
+			$(searchtablink).removeClass('current');
+			$('#idIndexBox').css('display', 'block');
+			$('#idContentBox').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			// делаем недоступной кнопку новая вкладка на панели инструментов
+			$('#idNewTabOn').css('display', 'none');
+			$('#idNewTabOff').css('display', 'block');
+			$('#idNewTabText').addClass('nav-text-off');
+		};
+	};
+	// события кнопки закрытия вкладки ключевые слова
+	if ('ul.tabs li#idIndexTab img' != null) {
+		// наведение курсора
+		$('ul.tabs li#idIndexTab img').mouseover(function () {
+			$('ul.tabs li#idIndexTab img').css('cursor', 'pointer');
+			$('ul.tabs li#idIndexTab img').css('display', 'block');
+			$('ul.tabs li#idIndexTab img').attr('src', 'image/closetabon.png');
+		});
+		$('ul.tabs li#idIndexTab img').mouseout(function () {
+			$('ul.tabs li#idIndexTab img').css('cursor', 'default');
+			$('ul.tabs li#idIndexTab img').css('display', 'none');
+			$('ul.tabs li#idIndexTab img').attr('src', 'image/closetaboff.png');
+		});
+		// событие клик
+		$('ul.tabs li#idIndexTab img').on('click', function () {
+			$(topictablink).addClass('current');
+			$(indextablink).removeClass('current');
+			$(searchtablink).removeClass('current');
+			$('#idIndexTab').css('display', 'none');
+			$('#idIndexBox').css('display', 'none');
+			// $('#idSearchTab').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			$('#idTopicTab').css('display', 'block');
+			$('#idContentBox').css('display', 'block');
+			// делаем доступной кнопку новая вкладка на панели инструментов
+			$('#idNewTabOn').css('display', 'block');
+			$('#idNewTabOff').css('display', 'none');
+			$('#idNewTabText').removeClass('nav-text-off');
+		});
+	};
+	// события вкладки поиск
+	if (searchtablink != null) {
+		// наведение курсора
+		$(searchtablink).mouseover(function () {
+			$('ul.tabs li#idSearchTab img').css('display', 'block');
+			$('ul.tabs a#idSearchTabLink span').addClass('hover');
+		});
+		$(searchtablink).mouseout(function () {
+			$('ul.tabs li#idSearchTab img').css('display', 'none');
+			$('ul.tabs a#idSearchTabLink span').removeClass('hover');
+		});
+		// событие клик
+		searchtablink.onclick = function () {
+			$(searchtablink).addClass('current');
+			$(topictablink).removeClass('current');
+			$(indextablink).removeClass('current');
+			$('#idSearchBox').css('display', 'block');
+			$('#idContentBox').css('display', 'none');
+			$('#idIndexBox').css('display', 'none');
+			// делаем недоступной кнопку новая вкладка на панели инструментов
+			$('#idNewTabOn').css('display', 'none');
+			$('#idNewTabOff').css('display', 'block');
+			$('#idNewTabText').addClass('nav-text-off');
+		};
+	};
+	// события кнопки закрытия вкладки поиск
+	if ('ul.tabs li#idSearchTab img' != null) {
+		// наведение курсора
+		$('ul.tabs li#idSearchTab img').mouseover(function () {
+			$('ul.tabs li#idSearchTab img').css('cursor', 'pointer');
+			$('ul.tabs li#idSearchTab img').css('display', 'block');
+			$('ul.tabs li#idSearchTab img').attr('src', 'image/closetabon.png');
+		});
+		$('ul.tabs li#idSearchTab img').mouseout(function () {
+			$('ul.tabs li#idSearchTab img').css('cursor', 'default');
+			$('ul.tabs li#idSearchTab img').css('display', 'none');
+			$('ul.tabs li#idSearchTab img').attr('src', 'image/closetaboff.png');
+		});
+		// событие клик
+		$('ul.tabs li#idSearchTab img').on('click', function () {
+			$(topictablink).addClass('current');
+			$(indextablink).removeClass('current');
+			$(searchtablink).removeClass('current');
+			// $('#idIndexTab').css('display', 'none');
+			$('#idIndexBox').css('display', 'none');
+			$('#idSearchTab').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			$('#idTopicTab').css('display', 'block');
+			$('#idContentBox').css('display', 'block');
+			// делаем доступной кнопку новая вкладка на панели инструментов
+			$('#idNewTabOn').css('display', 'block');
+			$('#idNewTabOff').css('display', 'none');
+			$('#idNewTabText').removeClass('nav-text-off');
+		});
+	};
+}
+
 // Элементы панели инструментов - файл index.html
 
 // кнопка Быстрый поиск
@@ -10,11 +152,13 @@ function topicsPane() {
 }
 // кнопка Ключевые слова
 function indexPane() {
-	alert(`(i) Кнопка «Ключевые слова» на панели пока что в разработке`);
+	// alert(`(i) Кнопка «Ключевые слова» на панели пока что в разработке`);
+	$('#idIndexTab').css('display', 'block');
 }
 // кнопка Поиск
 function searchPane() {
-	alert(`(i) Кнопка «Поиск» на панели пока что в разработке`);
+	// alert(`(i) Кнопка «Поиск» на панели пока что в разработке`);
+	$('#idSearchTab').css('display', 'block');
 }
 // кнопка Открепить
 function undockTab() {
@@ -129,14 +273,13 @@ function topicTab() {
 function keywordsTab() {
 	// WebHelp.activePage ='index'; // строка из index.html (240)
 	// alert(`(i) Функция перейти на вкладку «Ключевые слова» пока что в разработке`);
-
 	let elemTab = document.getElementById('idIndexTab');
 	elemTab.activePage = 'index';
 }
 
 function searchTab() {
 	// WebHelp.activePage='search'; // строка из index.html (246)
-	alert(`(i) Функция перейти на вкладку «Поиск» пока что в разработке`);
+	// alert(`(i) Функция перейти на вкладку «Поиск» пока что в разработке`);
 	let elemTab = document.getElementById('idSearchTab');
 	elemTab.activePage = 'search';
 }

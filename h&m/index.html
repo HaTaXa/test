@@ -212,7 +212,7 @@
 						<img id="idTabEndRight" class="tab-player" src="image/tabendright.png" title="Конец панели вкладок" alt="Конец панели вкладок">
 					</div>
 				</div>
-				<!--  -->
+				<!-- меню вкладок -->
 				<div id="idTabsMenuBox">
 					<div id="idTabsMenu" class="idMenu">
 						<ul id="idTabsList">
@@ -228,46 +228,47 @@
 						</ul>
 					</div>
 				</div>
-				<!--  -->
+				<!-- Вкладки топика -->
 				<div id="idTabsWindow">
 					<div id="idTabsLider" style="width: 272px;">
 						<ul id="idTopicTabs" class="tabs">
 							<li id="idTopicTab" class="topic-tab" ondblclick="alert(`Нельзя открепить вкладку «Главная»`)" onclick="topicTab();" tabnum="0">
 								<a id="idTopicTabLink" class="current" href="#topictablink" data="ЕСД БСС «Главбух»" title="ЕСД БСС «Главбух»">
-									<span class="">ЕСД БСС «Главбух»</span>
+									<span>ЕСД БСС «Главбух»</span>
 								</a>
 							</li>
 							<li id="idIndexTab" class="topic-tab" onclick="keywordsTab();" hpage="index" tabnum="1">
 								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку">
-								<a id="idIndexTabLink" href="#indextablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку указатель" class="">
-									<span class="">Ключевые слова</span>
+								<a id="idIndexTabLink" href="#indextablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку указатель">
+									<span>Ключевые слова</span>
 								</a>
 							</li>
 							<li id="idSearchTab" class="topic-tab" onclick="searchTab();" hpage="search" tabnum="2" style="display: list-item;">
-								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку" style="display: none; cursor: pointer;">
-								<a id="idSearchTabLink" href="#searchtablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку «Поиск»" class="" style="display: block;">
-									<span class="">Поиск</span>
+								<img class="close-tab" src="image/closetaboff.png" alt="Закрыть эту вкладку" title="Закрыть эту вкладку">
+								<a id="idSearchTabLink" href="#searchtablink" ondblclick="unpinTab();" title="Дважды щелкните, чтобы открепить вкладку «Поиск»">
+									<span>Поиск</span>
 								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<!-- страница "Контент-Текст" -->
+			<!-- страницы топика: контент-текста, ключевые слова, поиск -->
 			<div id="idTopicBox">
+				<!-- страница "Контент-Текст" -->
 				<div id="idContentBox" style="display: block;">
 					<!-- (i) скрипт расположен в фале hmwebhelp.js -->
 					<!-- <script type="text/javascript">WebHelp.writeTopic();</script> -->
 					<iframe id="hmcontent" name="hmcontent" class="scroll-pane" src="esdbssGlavbyx.htm" title="Контент-Текст"></iframe>
 				</div>
-			</div>
-			<!-- страница "ключевые слова" -->
-			<div id="idIndexBox" style="display: none;">
-				<iframe id="idFrameIndex" name="frameIndex" class="scroll-pane" src="keywords.htm" title="Ключевые слова"></iframe>
-			</div>
-			<!-- страница "Поиск" -->
-			<div id="idSearchBox" style="display: none;">
-				<iframe id="idFrameSearch" name="frameSearch" class="scroll-pane" src="search.htm" title="Поиск"></iframe>
+				<!-- страница "ключевые слова" -->
+				<div id="idIndexBox" style="display: none;">
+					<iframe id="idFrameIndex" name="frameIndex" class="scroll-pane" src="keywords.htm" title="Ключевые слова"></iframe>
+				</div>
+				<!-- страница "Поиск" -->
+				<div id="idSearchBox" style="display: none;">
+					<iframe id="idFrameSearch" name="frameSearch" class="scroll-pane" src="search.htm" title="Поиск"></iframe>
+				</div>
 			</div>
 		</div>
 	</div>
