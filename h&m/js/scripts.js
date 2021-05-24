@@ -1,57 +1,71 @@
-//дожидаемся полной загрузки страницы, (i) но проверка на null все равно нужна, не пойму тогда для чего onload?
+//дожидаемся полной загрузки страницы, (i) но проверка на null все равно получается нужна, не пойму тогда для чего onload?
 window.onload = function () {
 	// Инициализация переменных
-	topictablink = document.getElementById('idTopicTabLink');
-	indextablink = document.getElementById('idIndexTabLink');
-	searchtablink = document.getElementById('idSearchTabLink');
+	// topictablink = document.getElementById('idTopicTabLink');
+	// indextablink = document.getElementById('idIndexTabLink');
+	// searchtablink = document.getElementById('idSearchTabLink');
 
 	// события вкладки топик
-	if (topictablink != null) {
+	if ('#idTopicTabLink' != null) {
 		// наведение курсора
-		$(topictablink).mouseover(function () {
+		$('#idTopicTabLink').mouseover(function () {
 			$('ul.tabs a#idTopicTabLink span').addClass('hover');
 		});
-		$(topictablink).mouseout(function () {
+		$('#idTopicTabLink').mouseout(function () {
 			$('ul.tabs a#idTopicTabLink span').removeClass('hover');
 		});
 		// событие клик
-		topictablink.onclick = function () {
-			$(topictablink).addClass('current');
-			$(indextablink).removeClass('current');
-			$(searchtablink).removeClass('current');
+		$('#idTopicTabLink').on('click', function () {
+			// ссылки во вкладках
+			$('#idTopicTabLink').addClass('current');
+			$('#idIndexTabLink').removeClass('current');
+			$('#idSearchTabLink').removeClass('current');
+			// контент-текст
 			$('#idContentBox').css('display', 'block');
 			$('#idIndexBox').css('display', 'none');
 			$('#idSearchBox').css('display', 'none');
-			// делаем доступной кнопку новая вкладка на панели инструментов
+			// кнопки на панели инструментов
+			// кнопка открепить нет доступа
+			$('#idUndocTabOn').css('display', 'none');
+			$('#idUndocTabOff').css('display', 'block');
+			$('#idUndocTabText').addClass('nav-text-off');
+			// кнопка новая вкладка доступна
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
 			$('#idNewTabText').removeClass('nav-text-off');
-		};
+		});
 	};
 	// события вкладки ключевые слова
-	if (indextablink != null) {
+	if ('#idIndexTabLink' != null) {
 		// наведение курсора
-		$(indextablink).mouseover(function () {
+		$('#idIndexTabLink').mouseover(function () {
 			$('ul.tabs li#idIndexTab img').css('display', 'block');
 			$('ul.tabs a#idIndexTabLink span').addClass('hover');
 		});
-		$(indextablink).mouseout(function () {
+		$('#idIndexTabLink').mouseout(function () {
 			$('ul.tabs li#idIndexTab img').css('display', 'none');
 			$('ul.tabs a#idIndexTabLink span').removeClass('hover');
 		});
 		// событие клик
-		indextablink.onclick = function () {
-			$(indextablink).addClass('current');
-			$(topictablink).removeClass('current');
-			$(searchtablink).removeClass('current');
+		$('#idIndexTabLink').on('click', function () {
+			// ссылки во вкладках
+			$('#idIndexTabLink').addClass('current');
+			$('#idTopicTabLink').removeClass('current');
+			$('#idSearchTabLink').removeClass('current');
+			// контент-текст
 			$('#idIndexBox').css('display', 'block');
 			$('#idContentBox').css('display', 'none');
 			$('#idSearchBox').css('display', 'none');
-			// делаем недоступной кнопку новая вкладка на панели инструментов
+			// кнопки на панели инструментов
+			// кнопка открепить нет доступа
+			$('#idUndocTabOn').css('display', 'block');
+			$('#idUndocTabOff').css('display', 'none');
+			$('#idUndocTabText').removeClass('nav-text-off');
+			// кнопка новая вкладка нет доступа
 			$('#idNewTabOn').css('display', 'none');
 			$('#idNewTabOff').css('display', 'block');
 			$('#idNewTabText').addClass('nav-text-off');
-		};
+		});
 	};
 	// события кнопки закрытия вкладки ключевые слова
 	if ('ul.tabs li#idIndexTab img' != null) {
@@ -68,15 +82,19 @@ window.onload = function () {
 		});
 		// событие клик
 		$('ul.tabs li#idIndexTab img').on('click', function () {
-			$(topictablink).addClass('current');
-			$(indextablink).removeClass('current');
-			$(searchtablink).removeClass('current');
+			// ссылки во вкладках
+			$('#idTopicTabLink').addClass('current');
+			$('#idIndexTabLink').removeClass('current');
+			$('#idSearchTabLink').removeClass('current');
+			// вкладки
+			$('#idTopicTab').css('display', 'list-item');
 			$('#idIndexTab').css('display', 'none');
-			$('#idIndexBox').css('display', 'none');
 			// $('#idSearchTab').css('display', 'none');
-			$('#idSearchBox').css('display', 'none');
-			$('#idTopicTab').css('display', 'block');
+			// контент-текст
 			$('#idContentBox').css('display', 'block');
+			$('#idIndexBox').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			// кнопка на панели инструментов
 			// делаем доступной кнопку новая вкладка на панели инструментов
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
@@ -84,29 +102,36 @@ window.onload = function () {
 		});
 	};
 	// события вкладки поиск
-	if (searchtablink != null) {
+	if ('#idSearchTabLink' != null) {
 		// наведение курсора
-		$(searchtablink).mouseover(function () {
+		$('#idSearchTabLink').mouseover(function () {
 			$('ul.tabs li#idSearchTab img').css('display', 'block');
 			$('ul.tabs a#idSearchTabLink span').addClass('hover');
 		});
-		$(searchtablink).mouseout(function () {
+		$('#idSearchTabLink').mouseout(function () {
 			$('ul.tabs li#idSearchTab img').css('display', 'none');
 			$('ul.tabs a#idSearchTabLink span').removeClass('hover');
 		});
 		// событие клик
-		searchtablink.onclick = function () {
-			$(searchtablink).addClass('current');
-			$(topictablink).removeClass('current');
-			$(indextablink).removeClass('current');
+		$('#idSearchTabLink').on('click', function () {
+			// ссылки во вкладках
+			$('#idSearchTabLink').addClass('current');
+			$('#idTopicTabLink').removeClass('current');
+			$('#idIndexTabLink').removeClass('current');
+			// контент-текст
 			$('#idSearchBox').css('display', 'block');
 			$('#idContentBox').css('display', 'none');
 			$('#idIndexBox').css('display', 'none');
-			// делаем недоступной кнопку новая вкладка на панели инструментов
+			// кнопки на панели инструментов
+			// кнопка открепить нет доступа
+			$('#idUndocTabOn').css('display', 'block');
+			$('#idUndocTabOff').css('display', 'none');
+			$('#idUndocTabText').removeClass('nav-text-off');
+			// кнопка новая вкладка нет доступа
 			$('#idNewTabOn').css('display', 'none');
 			$('#idNewTabOff').css('display', 'block');
 			$('#idNewTabText').addClass('nav-text-off');
-		};
+		});
 	};
 	// события кнопки закрытия вкладки поиск
 	if ('ul.tabs li#idSearchTab img' != null) {
@@ -123,15 +148,19 @@ window.onload = function () {
 		});
 		// событие клик
 		$('ul.tabs li#idSearchTab img').on('click', function () {
-			$(topictablink).addClass('current');
-			$(indextablink).removeClass('current');
-			$(searchtablink).removeClass('current');
+			// ссылки во вкладках
+			$('#idTopicTabLink').addClass('current');
+			$('#idIndexTabLink').removeClass('current');
+			$('#idSearchTabLink').removeClass('current');
+			// вкладки
+			$('#idTopicTab').css('display', 'list-item');
 			// $('#idIndexTab').css('display', 'none');
-			$('#idIndexBox').css('display', 'none');
 			$('#idSearchTab').css('display', 'none');
-			$('#idSearchBox').css('display', 'none');
-			$('#idTopicTab').css('display', 'block');
+			// контент-текст
 			$('#idContentBox').css('display', 'block');
+			$('#idIndexBox').css('display', 'none');
+			$('#idSearchBox').css('display', 'none');
+			// кнопка на панели инструментов
 			// делаем доступной кнопку новая вкладка на панели инструментов
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
@@ -148,17 +177,69 @@ function remoteSearch() {
 }
 // кнопка Обзор
 function topicsPane() {
-	alert(`(i) Кнопка «Обзор» на панели пока что в разработке`);
+	// alert(`(i) Кнопка «Обзор» на панели пока что в разработке`);
+// вкладки
+	$('#idTopicTab').css('display', 'list-item');
+	// $('#idIndexTab').css('display', 'list-item');
+	// $('#idSearchTab').css('display', 'list-item');
+	// ссылки во вкладках
+	$('#idTopicTabLink').addClass('current');
+	$('#idIndexTabLink').removeClass('current');
+	$('#idSearchTabLink').removeClass('current');
+	// контент-текст
+	$('#idContentBox').css('display', 'block');
+	$('#idIndexBox').css('display', 'none');
+	$('#idSearchBox').css('display', 'none');
 }
 // кнопка Ключевые слова
 function indexPane() {
 	// alert(`(i) Кнопка «Ключевые слова» на панели пока что в разработке`);
-	$('#idIndexTab').css('display', 'block');
+	// вкладки
+	$('#idIndexTab').css('display', 'list-item');
+	// $('#idTopicTab').css('display', 'list-item');
+	// $('#idSearchTab').css('display', 'list-item');
+	// ссылки во вкладках
+	$('#idIndexTabLink').addClass('current');
+	$('#idTopicTabLink').removeClass('current');
+	$('#idSearchTabLink').removeClass('current');
+	// контент-текст
+	$('#idIndexBox').css('display', 'block');
+	$('#idContentBox').css('display', 'none');
+	$('#idSearchBox').css('display', 'none');
+	// кнопки на панели инструментов
+	// кнопка открепить нет доступа
+	$('#idUndocTabOn').css('display', 'block');
+	$('#idUndocTabOff').css('display', 'none');
+	$('#idUndocTabText').removeClass('nav-text-off');
+	// кнопка новая вкладка нет доступа
+	$('#idNewTabOn').css('display', 'block');
+	$('#idNewTabOff').css('display', 'none');
+	$('#idNewTabText').removeClass('nav-text-off');
 }
 // кнопка Поиск
 function searchPane() {
 	// alert(`(i) Кнопка «Поиск» на панели пока что в разработке`);
-	$('#idSearchTab').css('display', 'block');
+	// вкладки
+	$('#idSearchTab').css('display', 'list-item');
+	// $('#idTopicTab').css('display', 'list-item');
+	// $('#idIndexTab').css('display', 'list-item');
+	// ссылки во вкладках
+	$('#idSearchTabLink').addClass('current');
+	$('#idTopicTabLink').removeClass('current');
+	$('#idIndexTabLink').removeClass('current');
+	// контент-текст
+	$('#idSearchBox').css('display', 'block');
+	$('#idContentBox').css('display', 'none');
+	$('#idIndexBox').css('display', 'none');
+	// кнопки на панели инструментов
+	// кнопка открепить нет доступа
+	$('#idUndocTabOn').css('display', 'block');
+	$('#idUndocTabOff').css('display', 'none');
+	$('#idUndocTabText').removeClass('nav-text-off');
+	// кнопка новая вкладка нет доступа
+	$('#idNewTabOn').css('display', 'block');
+	$('#idNewTabOff').css('display', 'none');
+	$('#idNewTabText').removeClass('nav-text-off');
 }
 // кнопка Открепить
 function undockTab() {

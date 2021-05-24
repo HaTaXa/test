@@ -74,8 +74,8 @@ img#idExpandOff,
 img#idPermalinkOff,
 img#idFeedBackOff,
 img#idPrinterOff {
-	display: flex;
-	flex-direction: column;
+	/* display: flex;
+	flex-direction: column; */
 	margin: 0;
 	padding: 2px 4px 2px 4px;
 	border-width: 1px;
@@ -103,6 +103,7 @@ img#social_off, /* ??? че за кнопка я не знаю */
 img#idPrinterOff {
 	display: none;
 	cursor: default;
+	margin: 0 0 3px 0;
 }
 
 /* img.nav-icon,
@@ -131,7 +132,7 @@ img#idUndocTabOn {
 }
 img#idNewTabOff,
 img#idNewTabOn {
-	margin: 0 0 0 16px;
+	margin: 0 0 4px 16px;
 }
 img#idShowHideOff,
 img#idShowHideOn {
@@ -465,14 +466,15 @@ input#idInputSearch {
 	margin: 0;
 }
 
+img#idQuickSearchOff,
 img#idQuickSearchOn {
 	top: 20px;
 	left: 162px;
 }
 
-span#idQuickSearch {
+/* span#idQuickSearch {
 	margin-left: 2px;
-}
+} */
 
 img.nav-icon-H,
 img.nav-icon {
