@@ -33,5 +33,12 @@
 		"category": "Категория 3",
 		"price": 1500,
 		"discont": 15
+	},
+	"6": {
+		"id": 6,
+		"name": "Услуга 6",
+		"category": "Категория 1",
+		"price": 5000,
+		"discont": 0
 	}
 }

@@ -1,3 +1,7 @@
+body {
+	margin: 0;
+}
+
 .generateTable {
 	margin: auto;
 	width: 75%;
@@ -50,4 +54,30 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
 	background-color: lightgreen;
+}
+
+.btnRowDelete {
+	box-sizing: border-box;
+	padding: 10px 30px;
+	position: fixed;
+	top: 150px;
+	right: -115px;
+	z-index: 100;
+	transform: rotate(-90deg);
+
+	text-transform: uppercase;
+	background-color: rgba(7, 90, 145, 0.863);
+	color: white;
+	border: none;
+
+	transition: all 0.25s;
+}
+
+.btnRowDelete:hover:not([disabled]) {
+	cursor: pointer;
+	background-color: rgb(7, 93, 128);
+}
+
+.btnRowDelete[disabled] {
+	background-color: rgb(175, 173, 173);
 }

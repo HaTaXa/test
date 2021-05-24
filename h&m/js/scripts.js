@@ -221,7 +221,7 @@ function pageNext(hrefString) {
 }
 
 // ****************************************************
-// Элементы боковой панели навигации - файл navigationPane.htm
+// Элементы боковой панели навигации - файл navigation_pane.htm
 
 function NavShowHide() {
 	// alert(`(i) Пока что в разработке`);
@@ -240,7 +240,7 @@ function writeTOC() {
 }
 // Отображение текущего оглавления и скрытие другого
 function toggleList() {
-	// ondblclick="return dblclicked(this);" из файла navigationPane.html стр.56
+	// ondblclick="return dblclicked(this);" из файла navigation_pane.html стр.56
 
 // let elemChildrens = document.querySelector("ul").children;
 // if (elemChildrens != null) {
@@ -287,7 +287,7 @@ function searchTab() {
 // *******************************************
 // см.файл comments.js
 function showComments() {
-	// строка из файла esdbssGlavbyx.htm (87)
+	// строка из файла esd_bss_glavbyx.htm (87)
 	alert(`(i) Функция покать комментарии пока что в разработке`);
 }
 
@@ -302,7 +302,7 @@ function manualVersion() {
 		// let features = 'left=100,top=100,width=350,height=250,menubar=false,toolbar=false,location=false,resizabie=no,scrollbars=yes,status=false';
 		let features = 'width=350,height=300,left='+((screen.width-500)/2)+',top='+((screen.height-500)/2)+',menubar=false,toolbar=false,location=false,resizabie=no,scrollbars=yes,status=false';
 		// window.open("","","width=250,height=250"); /* пример открытия пустого окна */
-		window.open('manualVersion.htm', "", features);
+		window.open('manual_version.htm', "", features);
 	}
 }
 // ****************************************************

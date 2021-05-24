@@ -1,73 +1,37 @@
-let JSONstr = `{
-  "1": {
-    "id": 1,
-    "name": "Услуга 1",
-    "category": "Категория 1",
-    "price": 1000,
-    "discont": 10
-  },
-  "2": {
-    "id": 2,
-    "name": "Услуга 2",
-    "category": "Категория 1",
-    "price": 2500,
-    "discont": 0
-  },
-  "3": {
-    "id": 3,
-    "name": "Услуга 3",
-    "category": "Категория 2",
-    "price": 500,
-    "discont": 0
-  },
-  "4": {
-    "id": 4,
-    "name": "Услуга 4",
-    "category": "Категория 2",
-    "price": 2000,
-    "discont": 5
-  },
-  "5": {
-    "id": 5,
-    "name": "Услуга 5",
-    "category": "Категория 3",
-    "price": 1500,
-    "discont": 15
-  }
-}`;
-
-const services = JSON.parse(JSONstr);
-
-// let requestURL = "../json/js/services.json";
-
-// let request = new XMLHttpRequest();
-// request.open("GET", requestURL);
-
-// request.responseType = "json";
-// request.send();
-
-// request.onload = function () {
-// let services = request.response;
-
-let countKeys = 0; // кол-во ключей в объекте (кол-во ячеек в таблице)
-let countServices = 0; // кол-во услуг (кол-во объектов)
-for (let key in services[1]) {
-  if (services[1].hasOwnProperty(key)) {
-    countKeys++;
-  }
-}
-
-for (let key in services) {
-  if (services.hasOwnProperty(key)) {
-    countServices++;
-  }
-}
-
 let headersName = new Map(); // ассоциативный массив с именами заголовков таблицы
 
 const btnsContainer = document.getElementById("buttons"); // div с кнопками
 const btnCreate = document.getElementById("createTable"); // кнопка "Создать таблицу"
 const btnDelete = document.getElementById("deleteTable"); // кнопка "Удалить таблицу"
+let btnRowDelete; // кнопка удаления последней строки
+
+let services;
+let countKeys = 0; // кол-во ключей в объекте (кол-во ячеек в таблице)
+let countServices = 0; // кол-во услуг (кол-во объектов)
+
+let requestURL = "js/services.json";
+let request = new XMLHttpRequest();
+
+request.open("GET", requestURL, true); //асинхронный
+request.responseType = "json";
+
+request.addEventListener("readystatechange", () => {
+  if (request.readyState == 4 && request.status == 200) {
+    services = request.response;
+    for (let key in services[1]) {
+      if (services[1].hasOwnProperty(key)) {
+        countKeys++;
+      }
+    }
+
+    for (let key in services) {
+      if (services.hasOwnProperty(key)) {
+        countServices++;
+      }
+    }
+  }
+});
+request.send();
 
 // обработчик события "click" по кнопке "Создать таблицу"
 btnCreate.addEventListener("click", () => {
@@ -75,12 +39,31 @@ btnCreate.addEventListener("click", () => {
   if (!document.getElementById("generateTable")) {
     createTable(services); // вызов функции создания таблицы
   }
+  if (document.getElementById("generateTable")) {
+    btnRowDelete = document.createElement("button");
+    btnRowDelete.id = "btnRowDelete";
+    btnRowDelete.textContent = "Удалить последнюю строку";
+    btnRowDelete.classList.add("btnRowDelete");
+
+    document
+      .getElementById("generateTable")
+      .insertAdjacentElement("afterend", btnRowDelete);
+  }
+
+  btnRowDelete.addEventListener("click", () => {
+    document.querySelector("tbody tr:last-child:not(:first-child)").remove();
+
+    if (document.getElementById("generateTable").rows.length < 3) {
+      btnRowDelete.setAttribute("disabled", "");
+    }
+  });
 });
 
 // обработчик события "click" по кнопке "Удалить таблицу"
 btnDelete.addEventListener("click", () => {
   if (document.getElementById("generateTable")) {
     document.getElementById("generateTable").remove();
+    document.getElementById("btnRowDelete").remove();
   }
 });
 
@@ -207,7 +190,5 @@ function getValue(indexRow, indexCell) {
       continue;
     }
   }
-
   return value;
 }
-// };
