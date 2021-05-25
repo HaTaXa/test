@@ -5,6 +5,7 @@ window.onload = function () {
 	// indextablink = document.getElementById('idIndexTabLink');
 	// searchtablink = document.getElementById('idSearchTabLink');
 
+	// события элементов вкладок
 	// события вкладки топик
 	if ('#idTopicTabLink' != null) {
 		// наведение курсора
@@ -33,6 +34,22 @@ window.onload = function () {
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
 			$('#idNewTabText').removeClass('nav-text-off');
+			// кнопка развернуть/свернуть доступна
+			$('#idExpandOn').css('display', 'block');
+			$('#idExpandOff').css('display', 'none');
+			$('#idExpandText').removeClass('nav-text-off');
+			// кнопка постоянная ссылка доступна
+			$('#idPermalinkOn').css('display', 'block');
+			$('#idPermalinkOff').css('display', 'none');
+			$('#idPermalinkText').removeClass('nav-text-off');
+			// кнопка email доступна
+			$('#idFeedBackOn').css('display', 'block');
+			$('#idFeedBackOff').css('display', 'none');
+			$('#idFeedBackText').removeClass('nav-text-off');
+			// кнопка печать доступна
+			$('#idPrinterOn').css('display', 'block');
+			$('#idPrinterOff').css('display', 'none');
+			$('#idPrinterText').removeClass('nav-text-off');
 		});
 	};
 	// события вкладки ключевые слова
@@ -57,7 +74,7 @@ window.onload = function () {
 			$('#idContentBox').css('display', 'none');
 			$('#idSearchBox').css('display', 'none');
 			// кнопки на панели инструментов
-			// кнопка открепить нет доступа
+			// кнопка открепить доступа
 			$('#idUndocTabOn').css('display', 'block');
 			$('#idUndocTabOff').css('display', 'none');
 			$('#idUndocTabText').removeClass('nav-text-off');
@@ -65,6 +82,22 @@ window.onload = function () {
 			$('#idNewTabOn').css('display', 'none');
 			$('#idNewTabOff').css('display', 'block');
 			$('#idNewTabText').addClass('nav-text-off');
+			// кнопка развернуть/свернуть нет доступа
+			$('#idExpandOn').css('display', 'none');
+			$('#idExpandOff').css('display', 'block');
+			$('#idExpandText').addClass('nav-text-off');
+			// кнопка постоянная ссылка нет доступа
+			$('#idPermalinkOn').css('display', 'none');
+			$('#idPermalinkOff').css('display', 'block');
+			$('#idPermalinkText').addClass('nav-text-off');
+			// кнопка email нет доступа
+			$('#idFeedBackOn').css('display', 'none');
+			$('#idFeedBackOff').css('display', 'block');
+			$('#idFeedBackText').addClass('nav-text-off');
+			// кнопка печать нет доступа
+			$('#idPrinterOn').css('display', 'none');
+			$('#idPrinterOff').css('display', 'block');
+			$('#idPrinterText').addClass('nav-text-off');
 		});
 	};
 	// события кнопки закрытия вкладки ключевые слова
@@ -95,10 +128,30 @@ window.onload = function () {
 			$('#idIndexBox').css('display', 'none');
 			$('#idSearchBox').css('display', 'none');
 			// кнопка на панели инструментов
-			// делаем доступной кнопку новая вкладка на панели инструментов
+			// кнопка открепить - нет доступа
+			$('#idUndocTabOn').css('display', 'none');
+			$('#idUndocTabOff').css('display', 'block');
+			$('#idUndocTabText').addClass('nav-text-off');
+			// кнопка новая вкладка доступна
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
 			$('#idNewTabText').removeClass('nav-text-off');
+			// кнопка развернуть/свернуть доступна
+			$('#idExpandOn').css('display', 'block');
+			$('#idExpandOff').css('display', 'none');
+			$('#idExpandText').removeClass('nav-text-off');
+			// кнопка постоянная ссылка доступна
+			$('#idPermalinkOn').css('display', 'block');
+			$('#idPermalinkOff').css('display', 'none');
+			$('#idPermalinkText').removeClass('nav-text-off');
+			// кнопка email доступна
+			$('#idFeedBackOn').css('display', 'block');
+			$('#idFeedBackOff').css('display', 'none');
+			$('#idFeedBackText').removeClass('nav-text-off');
+			// кнопка печать доступна
+			$('#idPrinterOn').css('display', 'block');
+			$('#idPrinterOff').css('display', 'none');
+			$('#idPrinterText').removeClass('nav-text-off');
 		});
 	};
 	// события вкладки поиск
@@ -123,7 +176,7 @@ window.onload = function () {
 			$('#idContentBox').css('display', 'none');
 			$('#idIndexBox').css('display', 'none');
 			// кнопки на панели инструментов
-			// кнопка открепить нет доступа
+			// кнопка открепить доступна
 			$('#idUndocTabOn').css('display', 'block');
 			$('#idUndocTabOff').css('display', 'none');
 			$('#idUndocTabText').removeClass('nav-text-off');
@@ -131,6 +184,22 @@ window.onload = function () {
 			$('#idNewTabOn').css('display', 'none');
 			$('#idNewTabOff').css('display', 'block');
 			$('#idNewTabText').addClass('nav-text-off');
+			// кнопка развернуть/свернуть нет доступа
+			$('#idExpandOn').css('display', 'none');
+			$('#idExpandOff').css('display', 'block');
+			$('#idExpandText').addClass('nav-text-off');
+			// кнопка постоянная ссылка нет доступа
+			$('#idPermalinkOn').css('display', 'none');
+			$('#idPermalinkOff').css('display', 'block');
+			$('#idPermalinkText').addClass('nav-text-off');
+			// кнопка email нет доступа
+			$('#idFeedBackOn').css('display', 'none');
+			$('#idFeedBackOff').css('display', 'block');
+			$('#idFeedBackText').addClass('nav-text-off');
+			// кнопка печать нет доступа
+			$('#idPrinterOn').css('display', 'none');
+			$('#idPrinterOff').css('display', 'block');
+			$('#idPrinterText').addClass('nav-text-off');
 		});
 	};
 	// события кнопки закрытия вкладки поиск
@@ -161,10 +230,30 @@ window.onload = function () {
 			$('#idIndexBox').css('display', 'none');
 			$('#idSearchBox').css('display', 'none');
 			// кнопка на панели инструментов
-			// делаем доступной кнопку новая вкладка на панели инструментов
+			// кнопка открепить - нет доступа
+			$('#idUndocTabOn').css('display', 'none');
+			$('#idUndocTabOff').css('display', 'block');
+			$('#idUndocTabText').addClass('nav-text-off');
+			// кнопка новая вкладка доступна
 			$('#idNewTabOn').css('display', 'block');
 			$('#idNewTabOff').css('display', 'none');
 			$('#idNewTabText').removeClass('nav-text-off');
+			// кнопка развернуть/свернуть доступна
+			$('#idExpandOn').css('display', 'block');
+			$('#idExpandOff').css('display', 'none');
+			$('#idExpandText').removeClass('nav-text-off');
+			// кнопка постоянная ссылка доступна
+			$('#idPermalinkOn').css('display', 'block');
+			$('#idPermalinkOff').css('display', 'none');
+			$('#idPermalinkText').removeClass('nav-text-off');
+			// кнопка email доступна
+			$('#idFeedBackOn').css('display', 'block');
+			$('#idFeedBackOff').css('display', 'none');
+			$('#idFeedBackText').removeClass('nav-text-off');
+			// кнопка печать доступна
+			$('#idPrinterOn').css('display', 'block');
+			$('#idPrinterOff').css('display', 'none');
+			$('#idPrinterText').removeClass('nav-text-off');
 		});
 	};
 }
@@ -172,13 +261,13 @@ window.onload = function () {
 // Элементы панели инструментов - файл index.html
 
 // кнопка Быстрый поиск
-function remoteSearch() {
+function quickSearch() {
 	alert(`(i) Кнопка «Быстрый поиск» на панели пока что в разработке`);
 }
 // кнопка Обзор
 function topicsPane() {
 	// alert(`(i) Кнопка «Обзор» на панели пока что в разработке`);
-// вкладки
+	// вкладки
 	$('#idTopicTab').css('display', 'list-item');
 	// $('#idIndexTab').css('display', 'list-item');
 	// $('#idSearchTab').css('display', 'list-item');
@@ -190,6 +279,31 @@ function topicsPane() {
 	$('#idContentBox').css('display', 'block');
 	$('#idIndexBox').css('display', 'none');
 	$('#idSearchBox').css('display', 'none');
+	// кнопки на панели инструментов
+	// кнопка открепить нет доступа
+	$('#idUndocTabOn').css('display', 'none');
+	$('#idUndocTabOff').css('display', 'block');
+	$('#idUndocTabText').addClass('nav-text-off');
+	// кнопка новая вкладка доступна
+	$('#idNewTabOn').css('display', 'block');
+	$('#idNewTabOff').css('display', 'none');
+	$('#idNewTabText').removeClass('nav-text-off');
+	// кнопка развернуть/свернуть доступна
+	$('#idExpandOn').css('display', 'block');
+	$('#idExpandOff').css('display', 'none');
+	$('#idExpandText').removeClass('nav-text-off');
+	// кнопка постоянная ссылка доступна
+	$('#idPermalinkOn').css('display', 'block');
+	$('#idPermalinkOff').css('display', 'none');
+	$('#idPermalinkText').removeClass('nav-text-off');
+	// кнопка email доступна
+	$('#idFeedBackOn').css('display', 'block');
+	$('#idFeedBackOff').css('display', 'none');
+	$('#idFeedBackText').removeClass('nav-text-off');
+	// кнопка печать доступна
+	$('#idPrinterOn').css('display', 'block');
+	$('#idPrinterOff').css('display', 'none');
+	$('#idPrinterText').removeClass('nav-text-off');
 }
 // кнопка Ключевые слова
 function indexPane() {
@@ -207,14 +321,30 @@ function indexPane() {
 	$('#idContentBox').css('display', 'none');
 	$('#idSearchBox').css('display', 'none');
 	// кнопки на панели инструментов
-	// кнопка открепить нет доступа
+	// кнопка открепить доступна
 	$('#idUndocTabOn').css('display', 'block');
 	$('#idUndocTabOff').css('display', 'none');
 	$('#idUndocTabText').removeClass('nav-text-off');
 	// кнопка новая вкладка нет доступа
-	$('#idNewTabOn').css('display', 'block');
-	$('#idNewTabOff').css('display', 'none');
-	$('#idNewTabText').removeClass('nav-text-off');
+	$('#idNewTabOn').css('display', 'none');
+	$('#idNewTabOff').css('display', 'block');
+	$('#idNewTabText').addClass('nav-text-off');
+	// кнопка развернуть/свернуть нет доступа
+	$('#idExpandOn').css('display', 'none');
+	$('#idExpandOff').css('display', 'block');
+	$('#idExpandText').addClass('nav-text-off');
+	// кнопка постоянная ссылка нет доступа
+	$('#idPermalinkOn').css('display', 'none');
+	$('#idPermalinkOff').css('display', 'block');
+	$('#idPermalinkText').addClass('nav-text-off');
+	// кнопка email нет доступа
+	$('#idFeedBackOn').css('display', 'none');
+	$('#idFeedBackOff').css('display', 'block');
+	$('#idFeedBackText').addClass('nav-text-off');
+	// кнопка печать нет доступа
+	$('#idPrinterOn').css('display', 'none');
+	$('#idPrinterOff').css('display', 'block');
+	$('#idPrinterText').addClass('nav-text-off');
 }
 // кнопка Поиск
 function searchPane() {
@@ -232,14 +362,30 @@ function searchPane() {
 	$('#idContentBox').css('display', 'none');
 	$('#idIndexBox').css('display', 'none');
 	// кнопки на панели инструментов
-	// кнопка открепить нет доступа
+	// кнопка открепить доступна
 	$('#idUndocTabOn').css('display', 'block');
 	$('#idUndocTabOff').css('display', 'none');
 	$('#idUndocTabText').removeClass('nav-text-off');
 	// кнопка новая вкладка нет доступа
-	$('#idNewTabOn').css('display', 'block');
-	$('#idNewTabOff').css('display', 'none');
-	$('#idNewTabText').removeClass('nav-text-off');
+	$('#idNewTabOn').css('display', 'none');
+	$('#idNewTabOff').css('display', 'block');
+	$('#idNewTabText').addClass('nav-text-off');
+	// кнопка развернуть/свернуть нет доступа
+	$('#idExpandOn').css('display', 'none');
+	$('#idExpandOff').css('display', 'block');
+	$('#idExpandText').addClass('nav-text-off');
+	// кнопка постоянная ссылка нет доступа
+	$('#idPermalinkOn').css('display', 'none');
+	$('#idPermalinkOff').css('display', 'block');
+	$('#idPermalinkText').addClass('nav-text-off');
+	// кнопка email нет доступа
+	$('#idFeedBackOn').css('display', 'none');
+	$('#idFeedBackOff').css('display', 'block');
+	$('#idFeedBackText').addClass('nav-text-off');
+	// кнопка печать нет доступа
+	$('#idPrinterOn').css('display', 'none');
+	$('#idPrinterOff').css('display', 'block');
+	$('#idPrinterText').addClass('nav-text-off');
 }
 // кнопка Открепить
 function undockTab() {
@@ -301,10 +447,16 @@ function pageNext(hrefString) {
 	alert(`(i) Кнопка «Вперед» на панели пока что в разработке`);
 }
 
-// ****************************************************
+// **************************************************************
 // Элементы боковой панели навигации - файл navigation_pane.htm
 
-function NavShowHide() {
+// данная функция указана как скрипт в теле блока div боковой панели навигации
+function writeTOC() {
+	// ??? надо искать что за функция и какова ее функция
+	alert(`(i) Функция writeTOC пока что в разработке`);
+}
+// скрыть/показать боковую панель навигации
+function NavShowHide () {
 	// alert(`(i) Пока что в разработке`);
 	$("div#idNavBox").toggleClass("nav-box-right nav-box-left");
 	if ($("div#idDragDivider").css('cursor') == 'col-resize') {
@@ -314,10 +466,6 @@ function NavShowHide() {
 		$("div#idDragDivider").css('cursor', 'col-resize');
 	}
 	$("div#idTopicPane").toggleClass("topic-pane-right topic-pane-left");
-}
-// данная функция указана как скрипт в теле блока div боковой панели навигации
-function writeTOC() {
-	alert(`(i) Функция writeTOC пока что в разработке`);
 }
 // Отображение текущего оглавления и скрытие другого
 function toggleList() {
@@ -381,7 +529,7 @@ function manualVersion() {
 	{
 		// let features = 'toolbar=0,location=0,status=0,menubar=0,scrollbars=0,resizable=yes,width=900,height=700';
 		// let features = 'left=100,top=100,width=350,height=250,menubar=false,toolbar=false,location=false,resizabie=no,scrollbars=yes,status=false';
-		let features = 'width=350,height=300,left='+((screen.width-500)/2)+',top='+((screen.height-500)/2)+',menubar=false,toolbar=false,location=false,resizabie=no,scrollbars=yes,status=false';
+		let features = 'width=350,height=350,left='+((screen.width-500)/2)+',top='+((screen.height-500)/2)+',menubar=false,toolbar=false,location=false,resizabie=no,scrollbars=yes,status=false';
 		// window.open("","","width=250,height=250"); /* пример открытия пустого окна */
 		window.open('manual_version.htm', "", features);
 	}
