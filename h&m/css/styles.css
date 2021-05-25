@@ -514,10 +514,10 @@ div#idNavBox *, div#idTabControls * {
 
 div#idNavBox,
 div#idNavBox.nav-box-up,
-div#idNavBox.nav-box-show {
+div#idNavBox.nav-box-right {
 	position: absolute;
 	left: 0; bottom: 0;
-	top: 60px; width: 310px;
+	top: 60px; width: 300px;
 	padding: 2px 2px 2px 5px;
 }
 
@@ -525,7 +525,7 @@ div#idNavBox.nav-box-down {
 	top: 180px;
 }
 
-div#idNavBox.nav-box-hide {
+div#idNavBox.nav-box-left {
 	left: -300px;
 }
 
@@ -568,10 +568,9 @@ div#idDragDivider {
 }
 
 div#idTopicPane,
-div#idTopicPane.topic-pane-up,
-div#idTopicPane.topic-pane-right {
+div#idTopicPane.topic-pane-up {
 	position: absolute;
-	left: 326px;
+	left: 0;
 	top: 76px;
 	right: 0px;
 	bottom: 0px;
@@ -585,6 +584,10 @@ div#idTopicPane.topic-pane-down {
 
 div#idTopicPane.topic-pane-left {
 	left: 30px;
+}
+
+div#idTopicPane.topic-pane-right {
+	left: 316px;
 }
 
 /* Компоненты вкладок */
@@ -953,4 +956,13 @@ div#permalink textarea {
 	font-weight: bold;
 	color: #777;
 	box-shadow: 5px 5px 5px #888;
+}
+
+@media(max-width: 501px) {
+	div#idNavBox {
+		display: none;
+	}
+	div#idTopicPane.topic-pane-right {
+		left: 0;
+	}
 }

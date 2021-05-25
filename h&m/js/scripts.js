@@ -306,7 +306,7 @@ function pageNext(hrefString) {
 
 function NavShowHide() {
 	// alert(`(i) Пока что в разработке`);
-	$("div#idNavBox").toggleClass("nav-box-show nav-box-hide");
+	$("div#idNavBox").toggleClass("nav-box-right nav-box-left");
 	if ($("div#idDragDivider").css('cursor') == 'col-resize') {
 		$("div#idDragDivider").css('cursor', 'default');
 	}
