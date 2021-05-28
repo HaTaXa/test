@@ -537,7 +537,8 @@ function showComments() {
 // function writeCommentLink(params) {}
 
 // *************************************************
-// Элементы в топике контента - файл index.html
+// Элементы в топике контент-текста - файл index.html
+
 // Версия редакций инструкций - открытие в новом окне браузера
 function manualVersion() {
 	{

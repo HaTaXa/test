@@ -4,6 +4,7 @@ body {
 
 p {
 	font-size: 18px;
+	text-indent: 1.5em;
 }
 /* Заголовок */
 h1, h2, h3 {
@@ -36,4 +37,8 @@ h3 {
 
 .list-3 {
 	list-style-type: disc;
+}
+
+.list-4 {
+
 }
