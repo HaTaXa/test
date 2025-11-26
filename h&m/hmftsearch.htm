@@ -1,30 +1,30 @@
 ﻿<!DOCTYPE html>
 <html><head>
-   <title>Презентация Help &amp; Manual</title>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <meta http-equiv="content-language" content="ru" />
-   <meta name="robots" content="index,follow" />
-   <meta http-equiv="Content-Style-Type" content="text/css" />
-   <script type="text/javascript" src="jquery.js"></script>
-   <script type="text/javascript" src="jquery.tools.min.js"></script>
-   <link type="text/css" href="default.css" rel="stylesheet" />
-   <link id="tabscheme" type="text/css" href="hm_topic.css" rel="stylesheet" />
+	<title>Презентация Help &amp; Manual</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="ru" />
+	<meta name="robots" content="index,follow" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.tools.min.js"></script>
+	<link type="text/css" href="default.css" rel="stylesheet" />
+	<link id="tabscheme" type="text/css" href="hm_topic.css" rel="stylesheet" />
 <!--[if IE 9]>
 <link id="iesvgcss" rel="stylesheet" type="text/css" href="hm_webhelp_svg.css" />
 <![endif]-->
 <style type="text/css">
-body,html { 
+body,html {
 	overflow: hidden;
-	font-family: Verdana, Tahoma, Helvetica, Sans-Serif;  
+	font-family: Verdana, Tahoma, Helvetica, Sans-Serif;
 	}
 a { color: blue; }
 a:visited {color: blue;}
 a:hover {color: blue;}
 
 .submit { font-size: 9pt; margin: 5px 0; }
-input.zoom_searchbox {  }
-input.zoom_button {  }
+/* input.zoom_searchbox {  }
+input.zoom_button {  } */
 .zoom_results_per_page { font-size: 80%; }
 .zoom_match { font-size: 80%; line-height: 10%; margin-left: 10px;}
 
@@ -83,7 +83,7 @@ span.highlight {background-color: #ffff40;}
 </style>
 <script type="text/javascript">
 /*! Full-text search init functions for HM Premium Pack Version 2.71
-Copyright (c) 2008-2015 by Tim Green 
+Copyright (c) 2008-2015 by Tim Green
 All rights reserved. */
 
 // Make form resize function accessible from outside
@@ -110,13 +110,13 @@ $(document).ready(function() {
 		var buttonUp = $(".zoom_button").width() + 90;
 		var buttonDown = $(".zoom_button").width() + 80;
 		var docwidth = $(document).width();
-		
+
 		while ( ($("input#zoom_searchbox").width() + buttonUp) > docwidth) {
 			$("input#zoom_searchbox").attr("size",size--);
-		} 
+		}
 		while (($("input#zoom_searchbox").width() + buttonDown) < docwidth) {
-		   $("input#zoom_searchbox").attr("size",size++);
-		}	
+			$("input#zoom_searchbox").attr("size",size++);
+		}
 	}
 
 	// Check for parent and reload UI if no parent
@@ -131,19 +131,19 @@ $("body").css("visibility","hidden");
 // Search init delay for retarded browsers
 setTimeout(function() {
 if ($('div.results').length < 1) {
-	// No results 
+	// No results
 	if ($("input#zoom_searchbox").width() > 10 && $(document).width() > 10) {
 		resizeForm();
 		}
 	$("span br, div.searchheading br").remove();
-	} else  if ($('div.results').children().length > 0) { 
+	} else  if ($('div.results').children().length > 0) {
 	// Results found...
 	// $("span br, div.searchheading br, div.result_pagescount br").remove();
 
 		(function() {
 			var summary = "";
 			var pcount = $("div.result_pagescount").html() ? $("div.result_pagescount").html() : "";
-			var suggestion = $("div.suggestion").html() ? $("div.suggestion").html() : ""; 
+			var suggestion = $("div.suggestion").html() ? $("div.suggestion").html() : "";
 			var searchtime = $("div.searchtime").html() ? (" " + $("div.searchtime").html()) : "";
 			var zoomad = $("p.zoom_advertising").html() ? ("<p class=\"zoom_ad\">" + $("p.zoom_advertising").html() + "</p><p>&nbsp;</p>") : "";
 			$("div.summary").each(function(index) {
@@ -153,29 +153,29 @@ if ($('div.results').length < 1) {
 				if (index > 0) $(this).remove();
 				});
 			summary += pcount + suggestion + searchtime;
-			
+
 			summary = summary.replace(/<br\s?\/?>/gi,"");
 			// summary += zoomad;
 			$("div.summary").html(summary);
 			$("div.result_pagescount, div.suggestion, div.searchtime, p.zoom_advertising").remove();
 			$($("div.results")[0]).append(zoomad);
 			})();
-	
+
 
 	var results = $("div.results")[0];
 	var resultsNav = ($("div.result_pages").length > 0); // ? $("div.result_pages").html() : false;
-	
+
 	if (resultsNav) {
 		$(results).css("top",($("div.result_pages").position().top + $("div.result_pages").height() + 7) + "px").css("border-top","1px solid silver");
 		$(window).bind("resize",function() {$(results).css("top",($("div.result_pages").position().top + $("div.result_pages").height() + 7) + "px")});
 		} else {
 	$(results).css("top",($("div.summary").position().top + $("div.summary").height() + 7) + "px").css("border-top","1px solid silver");
-	$(window).bind("resize",function() {$(results).css("top",($("div.summary").position().top + $("div.summary").height() + 7) + "px")});	
-		}		
+	$(window).bind("resize",function() {$(results).css("top",($("div.summary").position().top + $("div.summary").height() + 7) + "px")});
+		}
 	$("#dummy").remove();
 	$("div.results a[target='hmcontent']").on("click", function(event) {
 		var target = $(this).attr("href");
-		
+
 		if (Parent && Parent.hmnavpages.cachefix) {
 				event.preventDefault();
 				Parent.document.getElementById("hmcontent").src = Parent.hmCacheFix.getTarget(target);
@@ -194,23 +194,23 @@ if ($('div.results').length < 1) {
 
 	// Search args checker for search terms stored in main page
 	if (Parent.hmLayout.hmSearchArg != "") {
-	  var searchCheck = setInterval(function(){
-	  var box = document.getElementById("zoom_searchbox");
-	  try { if (box.name) {
-		   clearInterval(searchCheck);
-		   box.value = Parent.hmLayout.hmSearchArg;
-		   Parent.hmLayout.hmSearchArg = "";
-		   document.forms[0].submit();
-		   }
+		var searchCheck = setInterval(function(){
+		var box = document.getElementById("zoom_searchbox");
+		try { if (box.name) {
+			clearInterval(searchCheck);
+			box.value = Parent.hmLayout.hmSearchArg;
+			Parent.hmLayout.hmSearchArg = "";
+			document.forms[0].submit();
+			}
 		} catch(err) {}
-	  },100);
-	} // Search args checker	
+		},100);
+	} // Search args checker
 
 	},100); // End search init timeout
 
 // Search page is undocked
 	if (window.opener) {
-	// Display tab box for undocked window 
+	// Display tab box for undocked window
 	$("ul.tabs").show();
 	$("ul.tabs a").css("cursor","default");
 	// $("body").css("background-color","#f1f1f1");
@@ -230,22 +230,22 @@ if ($('div.results').length < 1) {
 		}
 
 	// Match skin to main window
-	$("link#tabscheme").attr("href","hm_webhelp_undocked.css");	
-	$("body,html").css("backgroundImage", "url('blackpaisley.jpeg')"); 
-			
+	$("link#tabscheme").attr("href","hm_webhelp_undocked.css");
+	$("body,html").css("backgroundImage", "url('blackpaisley.jpeg')");
+
 	// Close undocked search window if main window closes, reloads or goes elsewhere
 	var closeCheck = setInterval(function(){
 		function closeIt() {clearInterval(closeCheck); window.close();}
-		try { var windowsOpen = window.opener.hmWebHelp.openWindows.length; 
-			} catch(err) { closeIt();}	
+		try { var windowsOpen = window.opener.hmWebHelp.openWindows.length;
+			} catch(err) { closeIt();}
 			if(!window.opener || windowsOpen < 1) {
 				closeIt();
 				}
 				},500);
-	} // End if window.opener 
+	} // End if window.opener
 
 	$(window).bind("resize",resizeForm);
-	
+
 }); // End document.ready()
 </script>
 </head>
